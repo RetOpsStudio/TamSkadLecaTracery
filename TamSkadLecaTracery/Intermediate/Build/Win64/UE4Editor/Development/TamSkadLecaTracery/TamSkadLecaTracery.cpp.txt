@@ -1,0 +1,2 @@
+D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Intermediate\Build\Win64\UE4Editor\Development\TamSkadLecaTracery\Definitions.TamSkadLecaTracery.h
+D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Source\TamSkadLecaTracery\TamSkadLecaTracery.h

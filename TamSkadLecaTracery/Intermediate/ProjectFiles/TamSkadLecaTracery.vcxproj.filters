@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\TamSkadLecaTracery.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{6B6F1228-23E4-4CBE-A8E5-52D3D9A93D18}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TamSkadLecaTracery.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\TamSkadLecaTraceryEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{CEAB8685-B8DC-4C20-9B68-C1B38B5FA351}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\TamSkadLecaTracery">
+      <UniqueIdentifier>{1AD074B8-9327-42F6-B365-CCB792ED609A}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTracery.Build.cs">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTracery.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTracery.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTraceryGameModeBase.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTraceryGameModeBase.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

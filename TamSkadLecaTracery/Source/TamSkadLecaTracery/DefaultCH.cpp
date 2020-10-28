@@ -2,19 +2,22 @@
 
 
 #include "DefaultCH.h"
+#include "Camera/CameraComponent.h"
 
 // Sets default values
 ADefaultCH::ADefaultCH()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	
+	
 }
 
 // Called when the game starts or when spawned
 void ADefaultCH::BeginPlay()
 {
 	Super::BeginPlay();
+	
 	
 }
 

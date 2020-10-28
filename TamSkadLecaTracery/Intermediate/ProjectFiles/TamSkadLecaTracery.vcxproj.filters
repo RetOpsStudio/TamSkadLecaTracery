@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TamSkadLecaTracery.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{ED7931C2-2753-4731-975B-C31252C6CC56}</UniqueIdentifier>
+      <UniqueIdentifier>{8F2FC592-4F1E-411C-AF7E-112E03C8469D}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TamSkadLecaTracery.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{8349E9D0-7D7E-472D-8CB3-7E1C80BE2CEC}</UniqueIdentifier>
+      <UniqueIdentifier>{DF43BAE7-33A7-40B8-9730-13E1B5BAC075}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,13 +23,22 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\TamSkadLecaTracery">
-      <UniqueIdentifier>{91B21AFC-0D16-4C4F-8C94-1F6A1358BAB6}</UniqueIdentifier>
+      <UniqueIdentifier>{A33FB426-DA0B-4493-ADF8-649DEE14B29A}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\DefaultCH.cpp">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TamSkadLecaTracery\DefaultCH.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\DefaultPlayerController.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\DefaultPlayerController.h">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClInclude>
     <None Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTracery.Build.cs">

@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "DefaultCH.generated.h"
 
+class UCameraComponent;
+
 UCLASS()
 class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter
 {
@@ -14,6 +16,8 @@ class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ADefaultCH();
+	
+
 
 protected:
 	// Called when the game starts or when spawned

@@ -5,5 +5,7 @@ D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionS
 D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
 D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Intermediate\Build\Win64\UE4Editor\Inc\TamSkadLecaTracery\DefaultCH.generated.h
+D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Source\TamSkadLecaTracery\UE4ManACPP.h
+D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Intermediate\Build\Win64\UE4Editor\Inc\TamSkadLecaTracery\UE4ManACPP.generated.h
 D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
 D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h

@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TamSkadLecaTracery.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{8F2FC592-4F1E-411C-AF7E-112E03C8469D}</UniqueIdentifier>
+      <UniqueIdentifier>{EF3AC073-FC5C-4440-A2C1-CDD297CE8A2F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TamSkadLecaTracery.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{DF43BAE7-33A7-40B8-9730-13E1B5BAC075}</UniqueIdentifier>
+      <UniqueIdentifier>{E7D15FB8-6AFA-4DD4-A19C-04F3CA445423}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TamSkadLecaTracery">
-      <UniqueIdentifier>{A33FB426-DA0B-4493-ADF8-649DEE14B29A}</UniqueIdentifier>
+      <UniqueIdentifier>{95A8175E-0908-4E83-AA9E-FEC7C4DBDBBF}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\DefaultCH.cpp">
       <Filter>Source\TamSkadLecaTracery</Filter>
@@ -54,6 +54,12 @@
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTraceryGameModeBase.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\UE4ManACPP.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\UE4ManACPP.h">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClInclude>
   </ItemGroup>

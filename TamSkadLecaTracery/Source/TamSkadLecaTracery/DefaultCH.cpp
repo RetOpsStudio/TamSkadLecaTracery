@@ -2,13 +2,15 @@
 
 
 #include "DefaultCH.h"
+#include "UE4ManACPP.h"
 #include "Camera/CameraComponent.h"
 
 // Sets default values
 ADefaultCH::ADefaultCH()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
+	
 	
 	
 }
@@ -17,15 +19,27 @@ ADefaultCH::ADefaultCH()
 void ADefaultCH::BeginPlay()
 {
 	Super::BeginPlay();
+}
+
+void ADefaultCH::SetupVariables(UAnimInstance* Ref)
+{
+	ABPRef = Ref;
+}
+
+float ADefaultCH::CalculateMovementDirection() const
+{
+	auto Rotation = GetControlRotation();
+	auto Velocity = GetVelocity();
 	
-	
+
+	return ABPRef->CalculateDirection(Velocity, Rotation);
 }
 
 // Called every frame
 void ADefaultCH::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 }
 
 // Called to bind functionality to input

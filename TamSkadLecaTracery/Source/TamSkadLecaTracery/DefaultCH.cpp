@@ -31,16 +31,15 @@ float ADefaultCH::CalculateMovementDirection() const
 	auto Rotation = GetControlRotation();
 	auto Velocity = GetVelocity();
 	
-
-	return ABPRef->CalculateDirection(Velocity, Rotation);
+	return ABPRef->CalculateDirection(GetVelocity(), Rotation);
 }
 
-// Called every frame
-void ADefaultCH::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	
-}
+//// Called every frame
+//void ADefaultCH::Tick(float DeltaTime)
+//{
+//	Super::Tick(DeltaTime);
+//	
+//}
 
 // Called to bind functionality to input
 void ADefaultCH::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

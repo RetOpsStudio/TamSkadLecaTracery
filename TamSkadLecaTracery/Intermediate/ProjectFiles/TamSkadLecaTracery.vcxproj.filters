@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TamSkadLecaTracery.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{A0E51034-95EA-4A90-AD33-FA387776FF10}</UniqueIdentifier>
+      <UniqueIdentifier>{A15AF5BA-32B7-498A-8901-31C52B1FAB79}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TamSkadLecaTracery.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{C3A834B8-FEDD-4A98-9F9C-DFE4E5FC65BA}</UniqueIdentifier>
+      <UniqueIdentifier>{7FAF6591-4844-4BEA-8389-E12F0BFB0834}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,8 +27,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TamSkadLecaTracery">
-      <UniqueIdentifier>{3E387479-E545-477C-8229-26821DAF0309}</UniqueIdentifier>
+      <UniqueIdentifier>{D5CCFEBA-2B4A-419A-808B-7BBD4D50FA05}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\BulletParent.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\BulletParent.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\DefaultCH.cpp">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClCompile>

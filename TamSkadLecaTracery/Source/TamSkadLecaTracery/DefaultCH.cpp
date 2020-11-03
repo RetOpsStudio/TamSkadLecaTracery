@@ -4,6 +4,7 @@
 #include "DefaultCH.h"
 #include "UE4ManACPP.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/Controller.h"
 #include "Engine/World.h"
 
 // Sets default values

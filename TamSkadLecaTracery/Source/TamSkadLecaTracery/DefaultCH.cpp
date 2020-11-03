@@ -31,7 +31,8 @@ float ADefaultCH::CalculateMovementDirection() const
 	auto Rotation = GetControlRotation();
 	auto Velocity = GetVelocity();
 	
-	return ABPRef->CalculateDirection(GetVelocity(), Rotation);
+	
+	return ABPRef->CalculateDirection(GetVelocity(), FRotator(0,Rotation.Yaw,0));
 }
 
 //// Called every frame

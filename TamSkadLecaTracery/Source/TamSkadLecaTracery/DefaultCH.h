@@ -8,7 +8,7 @@
 
 class UCameraComponent;
 class UAnimInstance;
-
+class AGunParentV2;
 
 UCLASS()
 class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter
@@ -31,11 +31,15 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	float CalculateMovementDirection() const; //calculates direction for ABP "Direction"
 
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Setup")
+	TSubclassOf<AActor> StartingWeapon;
+	UPROPERTY(BlueprintReadWrite)
+	AActor* Weapon = nullptr;
 	
 	UAnimInstance * ABPRef = nullptr;
 public:	
 	// Called every frame
-	//virtual void Tick(float DeltaTime) override;
+	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

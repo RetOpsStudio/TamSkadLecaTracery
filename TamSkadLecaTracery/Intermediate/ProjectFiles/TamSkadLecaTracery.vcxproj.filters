@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TamSkadLecaTracery.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{CBE2567A-F317-43DB-9185-DD67F1E873F5}</UniqueIdentifier>
+      <UniqueIdentifier>{A0E51034-95EA-4A90-AD33-FA387776FF10}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TamSkadLecaTracery.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{F537CBF9-572C-4F64-848B-19DB86A00F0D}</UniqueIdentifier>
+      <UniqueIdentifier>{C3A834B8-FEDD-4A98-9F9C-DFE4E5FC65BA}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TamSkadLecaTracery">
-      <UniqueIdentifier>{9CCB9192-2A92-4CBE-8DEA-248059139168}</UniqueIdentifier>
+      <UniqueIdentifier>{3E387479-E545-477C-8229-26821DAF0309}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\DefaultCH.cpp">
       <Filter>Source\TamSkadLecaTracery</Filter>
@@ -45,6 +45,12 @@
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TamSkadLecaTracery\GunParent.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\GunParentV2.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\GunParentV2.h">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClInclude>
     <None Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTracery.Build.cs">

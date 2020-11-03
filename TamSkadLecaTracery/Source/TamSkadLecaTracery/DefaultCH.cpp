@@ -4,6 +4,7 @@
 #include "DefaultCH.h"
 #include "UE4ManACPP.h"
 #include "Camera/CameraComponent.h"
+#include "Engine/World.h"
 
 // Sets default values
 ADefaultCH::ADefaultCH()
@@ -19,6 +20,7 @@ ADefaultCH::ADefaultCH()
 void ADefaultCH::BeginPlay()
 {
 	Super::BeginPlay();
+	Weapon = GetWorld()->SpawnActor(StartingWeapon); //spawns Weapon that can be attached to PrimaryWeapon slot in CH
 }
 
 void ADefaultCH::SetupVariables(UAnimInstance* Ref)
@@ -35,12 +37,22 @@ float ADefaultCH::CalculateMovementDirection() const
 	return ABPRef->CalculateDirection(GetVelocity(), FRotator(0,Rotation.Yaw,0));
 }
 
-//// Called every frame
-//void ADefaultCH::Tick(float DeltaTime)
-//{
-//	Super::Tick(DeltaTime);
-//	
-//}
+
+void ADefaultCH::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	//if (!Weapon)
+	//{
+	//	
+	//	UE_LOG(LogTemp, Warning, TEXT("nimo"));
+	//		//UE_LOG(LogTemp, Warning, TEXT("Text, %d %f %s"), intVar, floatVar, *fstringVar);
+	//}
+	//if (Weapon)
+	//{
+	//	UE_LOG(LogTemp, Warning, TEXT("jest"));
+	//}
+	//
+}
 
 // Called to bind functionality to input
 void ADefaultCH::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

@@ -69,7 +69,11 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADefaultCH); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ADefaultCH)
 
 
-#define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_16_PRIVATE_PROPERTY_OFFSET
+#define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_16_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__StartingWeapon() { return STRUCT_OFFSET(ADefaultCH, StartingWeapon); } \
+	FORCEINLINE static uint32 __PPO__Weapon() { return STRUCT_OFFSET(ADefaultCH, Weapon); }
+
+
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_13_PROLOG
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

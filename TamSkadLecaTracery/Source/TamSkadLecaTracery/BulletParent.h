@@ -33,6 +33,11 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	UFUNCTION(BlueprintCallable)
-	void FireInDirection(const FVector& ShootDirection);
+	void FireInDirection(const FVector& ShootDirection, float BulletSpeed = 1000);
+	//setup movement component
+	void Setup();
+
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	float InitialBulletSpeed = 1000;
 
 };

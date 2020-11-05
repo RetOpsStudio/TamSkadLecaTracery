@@ -44,7 +44,7 @@ void ABulletParent::Setup()
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
 	ProjectileMovementComponent->SetUpdatedComponent(CollisionComponent);
 	ProjectileMovementComponent->InitialSpeed = InitialBulletSpeed;
-	ProjectileMovementComponent->MaxSpeed = InitialBulletSpeed;
+	ProjectileMovementComponent->MaxSpeed = 999999999999999;
 	ProjectileMovementComponent->bRotationFollowsVelocity = true;
 	ProjectileMovementComponent->bShouldBounce = true;
 	ProjectileMovementComponent->Bounciness = 0.3f;

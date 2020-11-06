@@ -13,5 +13,7 @@ UCLASS()
 class TAMSKADLECATRACERY_API AGunParentV2 : public ASkeletalMeshActor
 {
 	GENERATED_BODY()
-	
+public:
+	AGunParentV2();
+	virtual void Tick(float DeltaTime) override;
 };

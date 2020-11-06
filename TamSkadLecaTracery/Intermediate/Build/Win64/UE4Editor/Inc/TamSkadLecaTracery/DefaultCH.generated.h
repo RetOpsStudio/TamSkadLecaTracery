@@ -71,7 +71,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADefaultCH); \
 
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__StartingWeapon() { return STRUCT_OFFSET(ADefaultCH, StartingWeapon); } \
-	FORCEINLINE static uint32 __PPO__Weapon() { return STRUCT_OFFSET(ADefaultCH, Weapon); }
+	FORCEINLINE static uint32 __PPO__Fov() { return STRUCT_OFFSET(ADefaultCH, Fov); } \
+	FORCEINLINE static uint32 __PPO__AimFov() { return STRUCT_OFFSET(ADefaultCH, AimFov); }
 
 
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_13_PROLOG

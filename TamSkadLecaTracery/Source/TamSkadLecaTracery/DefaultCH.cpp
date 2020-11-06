@@ -21,7 +21,7 @@ ADefaultCH::ADefaultCH()
 void ADefaultCH::BeginPlay()
 {
 	Super::BeginPlay();
-	Weapon = GetWorld()->SpawnActor(StartingWeapon); //spawns Weapon that can be attached to PrimaryWeapon slot in CH
+	//Weapon = GetWorld()->SpawnActor(StartingWeapon); //spawns Weapon that can be attached to PrimaryWeapon slot in CH
 }
 
 void ADefaultCH::SetupVariables(UAnimInstance* Ref)

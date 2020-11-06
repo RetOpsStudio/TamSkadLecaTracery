@@ -31,10 +31,16 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	float CalculateMovementDirection() const; //calculates direction for ABP "Direction"
 
+
+
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AActor> StartingWeapon;
-	UPROPERTY(BlueprintReadWrite)
-	AActor* Weapon = nullptr;
+	/*UPROPERTY(BlueprintReadWrite)
+	AActor* Weapon = nullptr;*/
+	UPROPERTY(BlueprintReadWrite, Category = "Aiming")
+	float Fov = 90;
+	UPROPERTY(BlueprintReadWrite, Category = "Aiming")
+	float AimFov = 60;
 	
 	UAnimInstance * ABPRef = nullptr;
 public:	
@@ -43,6 +49,7 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
 
 private:
 };

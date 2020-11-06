@@ -2,6 +2,7 @@
 
 
 #include "GunParentV2.h"
+#include "BulletParent.h"
 
 AGunParentV2::AGunParentV2()
 {
@@ -10,6 +11,21 @@ AGunParentV2::AGunParentV2()
 
 
 
+}
+void AGunParentV2::Fire(FTransform BulletSpawnTransform)
+{
+	if (!ensure(BulletClass))
+	{
+		return;
+	}
+	if (InMagAmmo > 0)
+	{
+		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);
+		Bullet->SetLifeSpan(1.f);
+		Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), BulletSpeed);
+		InMagAmmo--;
+	}
+	
 }
 void AGunParentV2::Tick(float DeltaTime)
 {

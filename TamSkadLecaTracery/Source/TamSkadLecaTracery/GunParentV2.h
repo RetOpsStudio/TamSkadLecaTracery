@@ -16,14 +16,21 @@ class TAMSKADLECATRACERY_API AGunParentV2 : public ASkeletalMeshActor
 public:
 	AGunParentV2();
 
+	UFUNCTION(BlueprintCallable)
+	void Fire(FTransform BulletSpawnTransform);
+
+
+	UFUNCTION(BlueprintCallable)
+	FString GetAmmoLeft();
+
+
+	
+protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
-	float InMagAmmo = 30;
+	int InMagAmmo = 30;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
-	float CarryOnAmmo = 90;
-protected:
-	UFUNCTION(BlueprintCallable)
-		void Fire(FTransform BulletSpawnTransform);
+	int CarryOnAmmo = 90;
 
 	UPROPERTY(EditAnywhere, Category = "Ammo")
 	float BulletSpeed = 10000;
@@ -32,4 +39,7 @@ protected:
 	TSubclassOf<AActor> BulletClass;
 
 	virtual void Tick(float DeltaTime) override;
+private: 
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float BulletLifeTime = 0.5;
 };

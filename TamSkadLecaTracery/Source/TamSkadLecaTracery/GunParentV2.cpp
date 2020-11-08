@@ -21,12 +21,17 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform)
 	if (InMagAmmo > 0)
 	{
 		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);
-		Bullet->SetLifeSpan(1.f);
+		Bullet->SetLifeSpan(BulletLifeTime);
 		Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), BulletSpeed);
 		InMagAmmo--;
 	}
 	
 }
+inline FString AGunParentV2::GetAmmoLeft()
+{
+	return FString::FromInt(InMagAmmo) + FString("/") + FString::FromInt(CarryOnAmmo);
+}
+
 void AGunParentV2::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

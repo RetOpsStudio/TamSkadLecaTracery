@@ -27,7 +27,11 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform)
 	}
 	
 }
-inline FString AGunParentV2::GetAmmoLeft()
+inline float AGunParentV2::GetShotsPerSecond() const
+{
+	 return (ShootsPerMinute * (1 / 360));
+}
+inline FString AGunParentV2::GetAmmoLeft() const
 {
 	return FString::FromInt(InMagAmmo) + FString("/") + FString::FromInt(CarryOnAmmo);
 }

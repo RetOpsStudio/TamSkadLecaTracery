@@ -21,7 +21,13 @@ public:
 
 
 	UFUNCTION(BlueprintCallable)
-	FString GetAmmoLeft();
+	FString GetAmmoLeft() const;
+
+	UFUNCTION(BlueprintCallable)
+	float GetShotsPerSecond() const;
+
+	UFUNCTION(BlueprintCallable)
+		bool IsReadyToFire() const { return bool(InMagAmmo); }
 
 
 	
@@ -34,6 +40,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Ammo")
 	float BulletSpeed = 10000;
+
+	UPROPERTY(EditAnywhere, Category = "Ammo")
+	float ShootsPerMinute = 400;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
 	TSubclassOf<AActor> BulletClass;

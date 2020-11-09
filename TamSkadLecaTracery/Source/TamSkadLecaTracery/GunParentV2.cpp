@@ -32,6 +32,13 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 	}
 	
 }
+
+void AGunParentV2::Reload()
+{
+	FTimerHandle TimerHandle;
+	GetWorldTimerManager().SetTimer(TimerHandle,this, &AGunParentV2::FillMagFromAmmoLeft, ReloadTime, false);
+}
+
 inline float AGunParentV2::GetShotsPerSecond() const
 {
 	 return (ShootsPerMinute / (60*60));
@@ -44,4 +51,15 @@ inline FString AGunParentV2::GetAmmoLeft() const
 void AGunParentV2::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+void AGunParentV2::FillMagFromAmmoLeft()
+{
+	if (CarryOnAmmo > 0)
+	{
+		int AmmoDifference = InMagAmmo;//saving current ammo in mag value
+		InMagAmmo += FMath::Clamp<int>(CarryOnAmmo, 0, MagazineSize - InMagAmmo);
+		CarryOnAmmo -= InMagAmmo - AmmoDifference;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("Xd"));
 }

@@ -22,6 +22,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo);
 
+	UFUNCTION(BlueprintCallable)
+	void Reload();
 
 	UFUNCTION(BlueprintCallable)
 	FString GetAmmoLeft() const;
@@ -31,6 +33,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool IsReadyToFire() const { return bool(InMagAmmo); }
+
+	UFUNCTION(BlueprintCallable)
+	float GetReloadTime() const { return ReloadTime; }
 
 
 	
@@ -47,8 +52,11 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Ammo")
 	float BulletSpeed = 10000;
 
-	UPROPERTY(EditAnywhere, Category = "Ammo")
+	UPROPERTY(EditAnywhere, Category = "Setup")
 	float ShootsPerMinute = 400;
+
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	float ReloadTime = 2.05;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
 	TSubclassOf<AActor> BulletClass;
@@ -58,4 +66,6 @@ protected:
 private: 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	float BulletLifeTime = 0.5;
+
+	void FillMagFromAmmoLeft();
 };

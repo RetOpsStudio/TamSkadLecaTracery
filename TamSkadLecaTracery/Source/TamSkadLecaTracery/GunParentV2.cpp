@@ -3,6 +3,7 @@
 
 #include "GunParentV2.h"
 #include "BulletParent.h"
+#include "Kismet/GameplayStatics.h"
 
 AGunParentV2::AGunParentV2()
 {
@@ -12,7 +13,7 @@ AGunParentV2::AGunParentV2()
 
 
 }
-void AGunParentV2::Fire(FTransform BulletSpawnTransform)
+void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo)
 {
 	if (!ensure(BulletClass))
 	{
@@ -20,16 +21,20 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform)
 	}
 	if (InMagAmmo > 0)
 	{
-		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);
+		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);   ///spawning bullet from template
 		Bullet->SetLifeSpan(BulletLifeTime);
 		Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), BulletSpeed);
 		InMagAmmo--;
+		if (MuzzleFlash && AttachTo)
+		{
+			UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, AttachTo, FName("Bullet"));  //spawning particle from template
+		}
 	}
 	
 }
 inline float AGunParentV2::GetShotsPerSecond() const
 {
-	 return (ShootsPerMinute * (1 / 360));
+	 return (ShootsPerMinute / (60*60));
 }
 inline FString AGunParentV2::GetAmmoLeft() const
 {

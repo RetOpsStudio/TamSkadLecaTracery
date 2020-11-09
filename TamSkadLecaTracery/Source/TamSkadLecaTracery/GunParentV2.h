@@ -6,6 +6,9 @@
 #include "Animation/SkeletalMeshActor.h"
 #include "GunParentV2.generated.h"
 
+class UObject;
+class UParticleSystem;
+class USceneComponent;
 /**
  * 
  */
@@ -17,7 +20,7 @@ public:
 	AGunParentV2();
 
 	UFUNCTION(BlueprintCallable)
-	void Fire(FTransform BulletSpawnTransform);
+	void Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo);
 
 
 	UFUNCTION(BlueprintCallable)
@@ -27,13 +30,16 @@ public:
 	float GetShotsPerSecond() const;
 
 	UFUNCTION(BlueprintCallable)
-		bool IsReadyToFire() const { return bool(InMagAmmo); }
+	bool IsReadyToFire() const { return bool(InMagAmmo); }
 
 
 	
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
-	int InMagAmmo = 30;
+	int MagazineSize= 30;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
+	int InMagAmmo = MagazineSize;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
 	int CarryOnAmmo = 90;
@@ -46,6 +52,7 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
 	TSubclassOf<AActor> BulletClass;
+
 
 	virtual void Tick(float DeltaTime) override;
 private: 

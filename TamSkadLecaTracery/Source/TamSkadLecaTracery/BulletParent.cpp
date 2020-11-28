@@ -27,6 +27,7 @@ void ABulletParent::BeginPlay()
 void ABulletParent::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	//UE_LOG(LogTemp, Warning, TEXT("%s"), *GetRootComponent()->GetComponentVelocity().ToString());
 
 }
 
@@ -37,14 +38,13 @@ void ABulletParent::FireInDirection(const FVector& ShootDirection, float Speed)
 
 void ABulletParent::Setup()
 {
-	CollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
-	CollisionComponent->InitSphereRadius(15.0f);
-	RootComponent = CollisionComponent;
+	//CollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
+	//CollisionComponent->InitSphereRadius(5.0f);
+	//RootComponent = CollisionComponent;
 
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
 	ProjectileMovementComponent->SetUpdatedComponent(CollisionComponent);
 	ProjectileMovementComponent->InitialSpeed = InitialBulletSpeed;
-	ProjectileMovementComponent->MaxSpeed = 999999999999999;
 	ProjectileMovementComponent->bRotationFollowsVelocity = true;
 	ProjectileMovementComponent->bShouldBounce = true;
 	ProjectileMovementComponent->Bounciness = 0.3f;

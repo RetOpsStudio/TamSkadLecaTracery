@@ -19,6 +19,12 @@ public:
 	// Sets default values for this character's properties
 	ADefaultCH();
 	
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	int GetHp() { return HP; }
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void SetHp(int NewHp) { HP = NewHp; }// TODO if newHp<0 Death Delegate
+		
 
 
 protected:
@@ -51,5 +57,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 
+
 private:
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	int HP = 100;
 };

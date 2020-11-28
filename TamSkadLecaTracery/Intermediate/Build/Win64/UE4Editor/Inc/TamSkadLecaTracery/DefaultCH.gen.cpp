@@ -36,11 +36,28 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		P_THIS->SetupVariables(Z_Param_Ref);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ADefaultCH::execSetHp)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewHp);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetHp(Z_Param_NewHp);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ADefaultCH::execGetHp)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetHp();
+		P_NATIVE_END;
+	}
 	void ADefaultCH::StaticRegisterNativesADefaultCH()
 	{
 		UClass* Class = ADefaultCH::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CalculateMovementDirection", &ADefaultCH::execCalculateMovementDirection },
+			{ "GetHp", &ADefaultCH::execGetHp },
+			{ "SetHp", &ADefaultCH::execSetHp },
 			{ "SetupVariables", &ADefaultCH::execSetupVariables },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -75,6 +92,72 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADefaultCH_GetHp_Statics
+	{
+		struct DefaultCH_eventGetHp_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ADefaultCH_GetHp_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultCH_eventGetHp_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultCH_GetHp_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultCH_GetHp_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_GetHp_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Setup" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_GetHp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "GetHp", nullptr, nullptr, sizeof(DefaultCH_eventGetHp_Parms), Z_Construct_UFunction_ADefaultCH_GetHp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_GetHp_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_GetHp_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_GetHp_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultCH_GetHp()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_GetHp_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADefaultCH_SetHp_Statics
+	{
+		struct DefaultCH_eventSetHp_Parms
+		{
+			int32 NewHp;
+		};
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_NewHp;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ADefaultCH_SetHp_Statics::NewProp_NewHp = { "NewHp", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultCH_eventSetHp_Parms, NewHp), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultCH_SetHp_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultCH_SetHp_Statics::NewProp_NewHp,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_SetHp_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Setup" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_SetHp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "SetHp", nullptr, nullptr, sizeof(DefaultCH_eventSetHp_Parms), Z_Construct_UFunction_ADefaultCH_SetHp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_SetHp_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_SetHp_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_SetHp_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultCH_SetHp()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_SetHp_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -123,6 +206,10 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HP_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_HP;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AimFov_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_AimFov;
@@ -144,6 +231,8 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultCH_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection, "CalculateMovementDirection" }, // 78751880
+		{ &Z_Construct_UFunction_ADefaultCH_GetHp, "GetHp" }, // 2909591495
+		{ &Z_Construct_UFunction_ADefaultCH_SetHp, "SetHp" }, // 2384601985
 		{ &Z_Construct_UFunction_ADefaultCH_SetupVariables, "SetupVariables" }, // 4227976932
 	};
 #if WITH_METADATA
@@ -153,6 +242,13 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		{ "ModuleRelativePath", "DefaultCH.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData[] = {
+		{ "Category", "Setup" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP = { "HP", nullptr, (EPropertyFlags)0x0040000000010001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, HP), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData[] = {
 		{ "Category", "Aiming" },
@@ -179,6 +275,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon = { "StartingWeapon", nullptr, (EPropertyFlags)0x0024080000010005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, StartingWeapon), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultCH_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon,
@@ -210,7 +307,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 286757483);
+	IMPLEMENT_CLASS(ADefaultCH, 4065670720);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();

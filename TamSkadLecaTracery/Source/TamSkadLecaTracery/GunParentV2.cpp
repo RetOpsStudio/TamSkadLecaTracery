@@ -61,5 +61,5 @@ void AGunParentV2::FillMagFromAmmoLeft()
 		InMagAmmo += FMath::Clamp<int>(CarryOnAmmo, 0, MagazineSize - InMagAmmo);
 		CarryOnAmmo -= InMagAmmo - AmmoDifference;
 	}
-	UE_LOG(LogTemp, Warning, TEXT("Xd"));
+	//UE_LOG(LogTemp, Warning, TEXT("Xd"));
 }

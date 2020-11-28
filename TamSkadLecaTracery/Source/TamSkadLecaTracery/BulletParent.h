@@ -23,10 +23,10 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, Category = Movement)
+	UPROPERTY(BlueprintReadWrite, Category = "Movement")
 	UProjectileMovementComponent* ProjectileMovementComponent = nullptr;
 
-	UPROPERTY(VisibleDefaultsOnly, Category = Projectile)
+	UPROPERTY(VisibleDefaultsOnly, Category = "Projectile")
 	USphereComponent* CollisionComponent = nullptr;;
 
 public:	
@@ -38,6 +38,6 @@ public:
 	void Setup();
 
 	UPROPERTY(EditAnywhere, Category = "Setup")
-	float InitialBulletSpeed = 1000;
+	float InitialBulletSpeed = 1000;  //TODO Find sensible avlue 
 
 };

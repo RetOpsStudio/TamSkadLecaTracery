@@ -18,13 +18,17 @@ class UAnimInstance;
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execCalculateMovementDirection); \
-	DECLARE_FUNCTION(execSetupVariables);
+	DECLARE_FUNCTION(execSetupVariables); \
+	DECLARE_FUNCTION(execSetHp); \
+	DECLARE_FUNCTION(execGetHp);
 
 
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execCalculateMovementDirection); \
-	DECLARE_FUNCTION(execSetupVariables);
+	DECLARE_FUNCTION(execSetupVariables); \
+	DECLARE_FUNCTION(execSetHp); \
+	DECLARE_FUNCTION(execGetHp);
 
 
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_16_INCLASS_NO_PURE_DECLS \
@@ -72,7 +76,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADefaultCH); \
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__StartingWeapon() { return STRUCT_OFFSET(ADefaultCH, StartingWeapon); } \
 	FORCEINLINE static uint32 __PPO__Fov() { return STRUCT_OFFSET(ADefaultCH, Fov); } \
-	FORCEINLINE static uint32 __PPO__AimFov() { return STRUCT_OFFSET(ADefaultCH, AimFov); }
+	FORCEINLINE static uint32 __PPO__AimFov() { return STRUCT_OFFSET(ADefaultCH, AimFov); } \
+	FORCEINLINE static uint32 __PPO__HP() { return STRUCT_OFFSET(ADefaultCH, HP); }
 
 
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_13_PROLOG

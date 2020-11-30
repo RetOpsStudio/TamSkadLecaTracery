@@ -19,6 +19,7 @@ public:
 	// Sets default values for this actor's properties
 	ABulletParent();
 
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -29,6 +30,7 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Projectile")
 	USphereComponent* CollisionComponent = nullptr;;
 
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -36,6 +38,9 @@ public:
 	void FireInDirection(const FVector& ShootDirection, float BulletSpeed);
 	//setup movement component
 	void Setup();
+
+	UFUNCTION(BlueprintCallable)
+	float GetInitialBulletSpeed() { return InitialBulletSpeed; }
 
 	UPROPERTY(EditAnywhere, Category = "Setup")
 	float InitialBulletSpeed = 1000;  //TODO Find sensible avlue 

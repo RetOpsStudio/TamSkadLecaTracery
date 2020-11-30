@@ -25,7 +25,7 @@ protected:
 	float DamageMultiplier = 1;
 
 	UPROPERTY(EditAnywhere, Category = "Ammo")
-	int Armor = 100; //E.g bullet has 12% pen, hitting 100 armor comp, giving full dmg to comp but loosing 88% of his speed 
+	int Armor = 100; //E.g bullet has 12 pen, hitting 100 armor comp, giving full dmg to comp but loosing 88% of his speed if amor still => 100 bullet stops
 
 	
 };

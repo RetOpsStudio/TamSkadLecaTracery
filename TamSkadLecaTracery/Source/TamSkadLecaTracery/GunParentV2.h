@@ -49,8 +49,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
 	int CarryOnAmmo = 90;
 
-	UPROPERTY(EditAnywhere, Category = "Ammo")
-	float BulletSpeed = 10000;
+	//UPROPERTY(EditAnywhere, Category = "Ammo")
+	//float BulletSpeed = 10000;
 
 	UPROPERTY(EditAnywhere, Category = "Setup")
 	float ShootsPerMinute = 400;

@@ -3,6 +3,7 @@
 
 #include "GunParentV2.h"
 #include "BulletParent.h"
+#include "Engine/EngineTypes.h"
 #include "Kismet/GameplayStatics.h"
 
 AGunParentV2::AGunParentV2()
@@ -22,6 +23,7 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 	if (InMagAmmo > 0)
 	{
 		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);   ///spawning bullet from template
+		if (!Bullet) { return; }
 		Bullet->SetLifeSpan(BulletLifeTime);
 		Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
 		InMagAmmo--;

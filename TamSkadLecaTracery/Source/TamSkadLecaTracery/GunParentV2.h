@@ -65,7 +65,7 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 private: 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-	float BulletLifeTime = 0.5;
+	float BulletLifeTime = 1.f;
 
 	void FillMagFromAmmoLeft();
 };

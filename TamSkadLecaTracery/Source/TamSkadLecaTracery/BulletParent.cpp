@@ -47,5 +47,5 @@ void ABulletParent::Setup()
 	ProjectileMovementComponent->InitialSpeed = InitialBulletSpeed;
 	ProjectileMovementComponent->bRotationFollowsVelocity = true;
 	ProjectileMovementComponent->bShouldBounce = true;
-	ProjectileMovementComponent->Bounciness = 0.3f;
+	ProjectileMovementComponent->Bounciness = 0.05f;
 }

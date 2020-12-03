@@ -43,6 +43,6 @@ public:
 	float GetInitialBulletSpeed() { return InitialBulletSpeed; }
 
 	UPROPERTY(EditAnywhere, Category = "Setup")
-	float InitialBulletSpeed = 1000;  //TODO Find sensible avlue 
+	float InitialBulletSpeed = 7000;  //TODO Find sensible avlue 
 
 };

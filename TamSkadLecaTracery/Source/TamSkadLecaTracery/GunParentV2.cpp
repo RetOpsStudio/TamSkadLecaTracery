@@ -22,10 +22,12 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 	}
 	if (InMagAmmo > 0)
 	{
+		//auto Bullet = GetWorld()->SpawnActorDeferred<ABulletParent>(BulletClass,BulletSpawnTransform);
 		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);   ///spawning bullet from template
 		if (!Bullet) { return; }
 		Bullet->SetLifeSpan(BulletLifeTime);
 		Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
+		//Bullet->FinishSpawning(BulletSpawnTransform);
 		InMagAmmo--;
 		if (MuzzleFlash && AttachTo)
 		{
@@ -43,7 +45,7 @@ void AGunParentV2::Reload()
 
 inline float AGunParentV2::GetShotsPerSecond() const
 {
-	 return (ShootsPerMinute / (60*60));
+	 return (60/ShootsPerMinute);
 }
 inline FString AGunParentV2::GetAmmoLeft() const
 {

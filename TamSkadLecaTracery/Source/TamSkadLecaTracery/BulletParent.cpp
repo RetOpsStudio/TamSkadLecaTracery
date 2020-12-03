@@ -12,6 +12,7 @@ ABulletParent::ABulletParent()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	Setup();
+	ProjectileMovementComponent->bAutoActivate = false;
 	
 
 }
@@ -33,14 +34,16 @@ void ABulletParent::Tick(float DeltaTime)
 
 void ABulletParent::FireInDirection(const FVector& ShootDirection, float Speed)
 {
+	
 	ProjectileMovementComponent->Velocity = ShootDirection * Speed;
+	ProjectileMovementComponent->Activate();
+
+	
 }
 
 void ABulletParent::Setup()
 {
-	//CollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
-	//CollisionComponent->InitSphereRadius(5.0f);
-	//RootComponent = CollisionComponent;
+	
 
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
 	ProjectileMovementComponent->SetUpdatedComponent(CollisionComponent);
@@ -48,4 +51,5 @@ void ABulletParent::Setup()
 	ProjectileMovementComponent->bRotationFollowsVelocity = true;
 	ProjectileMovementComponent->bShouldBounce = true;
 	ProjectileMovementComponent->Bounciness = 0.05f;
+	
 }

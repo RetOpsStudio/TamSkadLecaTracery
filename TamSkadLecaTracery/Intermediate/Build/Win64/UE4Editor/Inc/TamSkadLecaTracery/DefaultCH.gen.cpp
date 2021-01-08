@@ -19,7 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	UPackage* Z_Construct_UPackage__Script_TamSkadLecaTracery();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_AGunParentV2_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ADefaultCH::execCalculateMovementDirection)
 	{
@@ -273,7 +273,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		{ "ToolTip", "calculates direction for ABP \"Direction\"" },
 	};
 #endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon = { "StartingWeapon", nullptr, (EPropertyFlags)0x0024080000010005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, StartingWeapon), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData)) };
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon = { "StartingWeapon", nullptr, (EPropertyFlags)0x0024080000010005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, StartingWeapon), Z_Construct_UClass_AGunParentV2_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultCH_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov,
@@ -307,7 +307,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 4065670720);
+	IMPLEMENT_CLASS(ADefaultCH, 1698437201);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();

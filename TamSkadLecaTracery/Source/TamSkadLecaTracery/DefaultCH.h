@@ -40,7 +40,7 @@ protected:
 
 
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Setup")
-	TSubclassOf<AActor> StartingWeapon;
+	TSubclassOf<AGunParentV2> StartingWeapon;
 	/*UPROPERTY(BlueprintReadWrite)
 	AActor* Weapon = nullptr;*/
 	UPROPERTY(BlueprintReadWrite, Category = "Aiming")

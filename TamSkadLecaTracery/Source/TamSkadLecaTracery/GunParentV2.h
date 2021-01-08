@@ -52,19 +52,19 @@ protected:
 	//UPROPERTY(EditAnywhere, Category = "Ammo")
 	//float BulletSpeed = 10000;
 
-	UPROPERTY(EditAnywhere, Category = "Setup")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setup")
 	float ShootsPerMinute = 400;
 
-	UPROPERTY(EditAnywhere, Category = "Setup")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setup")
 	float ReloadTime = 2.05;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Ammo")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
 	TSubclassOf<AActor> BulletClass;
 
 
 	virtual void Tick(float DeltaTime) override;
 private: 
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	UPROPERTY(EditAnywhere, Category = "Setup")
 	float BulletLifeTime = 1.f;
 
 	void FillMagFromAmmoLeft();

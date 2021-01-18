@@ -29,7 +29,10 @@ public:
 	FString GetAmmoLeft() const;
 
 	UFUNCTION(BlueprintCallable)
-	float GetShotsPerSecond() const;
+	float GetShotsInterval() const { return (60 / ShootsPerMinute); }
+
+	UFUNCTION(BlueprintCallable)
+	float GetShotsPerMinute() const { return ShootsPerMinute; }
 
 	UFUNCTION(BlueprintCallable)
 	bool IsReadyToFire() const { return InMagAmmo>0; }

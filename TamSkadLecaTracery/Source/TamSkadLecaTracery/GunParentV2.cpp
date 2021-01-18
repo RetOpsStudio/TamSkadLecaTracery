@@ -43,10 +43,7 @@ void AGunParentV2::Reload()
 	GetWorldTimerManager().SetTimer(TimerHandle,this, &AGunParentV2::FillMagFromAmmoLeft, ReloadTime, false);
 }
 
-inline float AGunParentV2::GetShotsPerSecond() const
-{
-	 return (60/ShootsPerMinute);
-}
+
 inline FString AGunParentV2::GetAmmoLeft() const
 {
 	return FString::FromInt(InMagAmmo) + FString("/") + FString::FromInt(CarryOnAmmo);
@@ -59,7 +56,13 @@ void AGunParentV2::Tick(float DeltaTime)
 
 void AGunParentV2::FillMagFromAmmoLeft()
 {
-	if (CarryOnAmmo > 0)
+	if (!ensure(MagazineSize >= 0)) 
+	{
+		UE_LOG(LogTemp, Warning, TEXT("MagazineSize cannot be lower then 1 you idiot"));
+		return;
+	}
+
+	if (CarryOnAmmo > 0) 
 	{
 		int AmmoDifference = InMagAmmo;//saving current ammo in mag value
 		InMagAmmo += FMath::Clamp<int>(CarryOnAmmo, 0, MagazineSize - InMagAmmo);

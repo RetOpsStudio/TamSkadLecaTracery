@@ -32,7 +32,7 @@ public:
 	float GetShotsPerSecond() const;
 
 	UFUNCTION(BlueprintCallable)
-	bool IsReadyToFire() const { return bool(InMagAmmo); }
+	bool IsReadyToFire() const { return InMagAmmo>0; }
 
 	UFUNCTION(BlueprintCallable)
 	float GetReloadTime() const { return ReloadTime; }

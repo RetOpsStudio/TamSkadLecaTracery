@@ -255,7 +255,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		{ "ModuleRelativePath", "DefaultCH.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov = { "AimFov", nullptr, (EPropertyFlags)0x0020080000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, AimFov), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov = { "AimFov", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, AimFov), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData[] = {
 		{ "Category", "Aiming" },
@@ -264,7 +264,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		{ "ToolTip", "UPROPERTY(BlueprintReadWrite)\n       AActor* Weapon = nullptr;" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov = { "Fov", nullptr, (EPropertyFlags)0x0020080000000004, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, Fov), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov = { "Fov", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, Fov), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData[] = {
 		{ "Category", "Setup" },
@@ -307,7 +307,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 1698437201);
+	IMPLEMENT_CLASS(ADefaultCH, 315422877);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();

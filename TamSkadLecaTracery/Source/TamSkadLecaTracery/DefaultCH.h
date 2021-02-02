@@ -43,9 +43,9 @@ protected:
 	TSubclassOf<AGunParentV2> StartingWeapon;
 	/*UPROPERTY(BlueprintReadWrite)
 	AActor* Weapon = nullptr;*/
-	UPROPERTY(BlueprintReadWrite, Category = "Aiming")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming")
 	float Fov = 90;
-	UPROPERTY(BlueprintReadWrite, Category = "Aiming")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming")
 	float AimFov = 60;
 	
 	UAnimInstance * ABPRef = nullptr;

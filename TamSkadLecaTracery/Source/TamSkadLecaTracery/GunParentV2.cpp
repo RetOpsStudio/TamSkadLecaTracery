@@ -44,9 +44,10 @@ void AGunParentV2::Reload()
 }
 
 
-inline FString AGunParentV2::GetAmmoLeft() const
+FString AGunParentV2::GetAmmoLeft() const
 {
-	return FString::FromInt(InMagAmmo) + FString("/") + FString::FromInt(CarryOnAmmo);
+	
+	return FString::FromInt(InMagAmmo) + FString("xxx") + FString::FromInt(CarryOnAmmo);
 }
 
 void AGunParentV2::Tick(float DeltaTime)

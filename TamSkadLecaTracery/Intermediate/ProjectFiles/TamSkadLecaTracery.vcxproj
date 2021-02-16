@@ -51,7 +51,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E0EBF09D-E554-440E-97B6-70F3A178A288}</ProjectGuid>
+    <ProjectGuid>{1E5FD859-85D0-491D-996E-621E805C4BF1}</ProjectGuid>
     <Keyword>MakeFileProj</Keyword>
     <RootNamespace>TamSkadLecaTracery</RootNamespace>
     <PlatformToolset>v142</PlatformToolset>

@@ -45,4 +45,6 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Setup")
 	float InitialBulletSpeed = 7000;  //TODO Find sensible avlue 
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "")
+	int PlayerControllerID= -1;
 };

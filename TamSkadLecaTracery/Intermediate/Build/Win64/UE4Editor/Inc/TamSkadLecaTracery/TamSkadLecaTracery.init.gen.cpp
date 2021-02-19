@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTracery_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xC19E7FCB,
-				0x011E6800,
+				0xFE5B3DE0,
+				0xEE8F5BB2,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

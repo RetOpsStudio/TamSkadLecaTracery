@@ -22,6 +22,7 @@ void ABulletParent::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	
 }
 
 // Called every frame

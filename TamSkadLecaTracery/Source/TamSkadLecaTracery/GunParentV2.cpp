@@ -14,7 +14,7 @@ AGunParentV2::AGunParentV2()
 
 
 }
-void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo, APawn* Insti, int32 PlayerControlerID)
+void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo,  int32 PlayerControlerID, AActor* ControllerRef)
 {
 	if (!ensure(BulletClass))
 	{
@@ -22,14 +22,14 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 	}
 	if (InMagAmmo > 0)
 	{
-		//auto Bullet = GetWorld()->SpawnActorDeferred<ABulletParent>(BulletClass,BulletSpawnTransform);
+	
 		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);   ///spawning bullet from template
 		if (!Bullet) { return; }
+		Bullet->PawnControllerRef = ControllerRef;
 		Bullet->PlayerControllerID = PlayerControlerID;
-		Bullet->SetInstigator(Insti);
 		Bullet->SetLifeSpan(BulletLifeTime);
 		Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
-		//Bullet->FinishSpawning(BulletSpawnTransform);
+		
 		InMagAmmo--;
 		if (MuzzleFlash && AttachTo)
 		{

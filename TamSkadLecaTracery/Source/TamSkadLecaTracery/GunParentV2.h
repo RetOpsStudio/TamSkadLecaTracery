@@ -20,7 +20,7 @@ public:
 	AGunParentV2();
 
 	UFUNCTION(BlueprintCallable)
-	void Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo, APawn* Insti = NULL, int32 PlayerControlerID = -1);
+	void Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo, int32 PlayerControlerID = -1, AActor* ControllerRef = nullptr);
 
 	UFUNCTION(BlueprintCallable)
 	void Reload();

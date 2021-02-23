@@ -3,3 +3,8 @@
 
 #include "HitBox.h"
 
+void UHitBox::SetParameters(int ArmorToSet, float DmgMultiToSet)
+{
+	Armor = ArmorToSet;
+	DamageMultiplier = DmgMultiToSet;
+}

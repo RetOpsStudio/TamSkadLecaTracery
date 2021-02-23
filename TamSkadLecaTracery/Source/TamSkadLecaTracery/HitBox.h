@@ -20,6 +20,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	int GetArmor() const { return Armor; }
+
+	UFUNCTION(BlueprintCallable)
+	void SetParameters(int ArmorToSet, float DmgMultiToSet);
 protected:
 	UPROPERTY(EditAnywhere, Category = "Ammo")
 	float DamageMultiplier = 1;

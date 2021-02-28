@@ -13,5 +13,12 @@ UCLASS()
 class TAMSKADLECATRACERY_API AAiControllerParent : public AAIController
 {
 	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay")
+	FGenericTeamId TeamId = FGenericTeamId(2);
+protected:
 	
+	ETeamAttitude::Type GetTeamAttitudeTowards(const AActor& Other) const override;
+	void BeginPlay();
+	void Tick(float DeltaTime);
 };

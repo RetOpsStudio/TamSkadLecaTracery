@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/Controller.h"
 #include "Engine/World.h"
+#include "Components/SkeletalMeshComponent.h"
 
 // Sets default values
 ADefaultCH::ADefaultCH()
@@ -61,4 +62,31 @@ void ADefaultCH::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
+//canBeSeenFrom method for Ai perception sight 
+bool ADefaultCH::CanBeSeenFrom(const FVector& ObserverLocation, FVector& OutSeenLocation, int32& NumberOfLoSChecksPerformed, float& OutSightStrength, const AActor* IgnoreActor) const
+{
+	static const FName NAME_AILineOfSight = FName(TEXT("TestPawnLineOfSight"));
+	FHitResult HitResult;
+	auto sockets = GetMesh()->GetAllSocketNames();
+	//Here we consider the NeckSocket as the 
+	FVector socketLocation = GetMesh()->GetSocketLocation("head");
 
+	const bool bHitSocket = GetWorld()->LineTraceSingleByObjectType(HitResult, ObserverLocation, socketLocation, FCollisionObjectQueryParams(ECC_TO_BITFIELD(ECC_WorldStatic) | ECC_TO_BITFIELD(ECC_WorldDynamic)), FCollisionQueryParams(NAME_AILineOfSight, true, IgnoreActor));
+	NumberOfLoSChecksPerformed++;
+	if (bHitSocket == false || (HitResult.Actor.IsValid() && HitResult.Actor->IsOwnedBy(this)))
+	{
+		OutSeenLocation = socketLocation;
+		OutSightStrength = 1;
+		return true;
+	}
+	const bool bHit = GetWorld()->LineTraceSingleByObjectType(HitResult, ObserverLocation, GetActorLocation(), FCollisionObjectQueryParams(ECC_TO_BITFIELD(ECC_WorldStatic) | ECC_TO_BITFIELD(ECC_WorldDynamic)), FCollisionQueryParams(NAME_AILineOfSight, true, IgnoreActor));
+	NumberOfLoSChecksPerformed++;
+	if (bHit == false || (HitResult.Actor.IsValid() && HitResult.Actor->IsOwnedBy(this)))
+	{
+		OutSeenLocation = GetActorLocation();
+		OutSightStrength = 1;
+		return true;
+	}
+	OutSightStrength = 0;
+	return false;
+}

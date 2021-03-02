@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_AGunParentV2_NoRegister();
+	AIMODULE_API UClass* Z_Construct_UClass_UAISightTargetInterface_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(ADefaultCH::execCalculateMovementDirection)
 	{
@@ -222,6 +223,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_StartingWeapon;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -280,6 +282,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon,
 	};
+		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ADefaultCH_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_UAISightTargetInterface_NoRegister, (int32)VTABLE_OFFSET(ADefaultCH, IAISightTargetInterface), false },
+		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADefaultCH_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADefaultCH>::IsAbstract,
 	};
@@ -290,11 +295,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		DependentSingletons,
 		FuncInfo,
 		Z_Construct_UClass_ADefaultCH_Statics::PropPointers,
-		nullptr,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::PropPointers),
-		0,
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::Class_MetaDataParams))
 	};
@@ -307,7 +312,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 315422877);
+	IMPLEMENT_CLASS(ADefaultCH, 934616890);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();

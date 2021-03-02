@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Perception/AISightTargetInterface.h"
 #include "DefaultCH.generated.h"
 
 class UCameraComponent;
@@ -11,7 +12,7 @@ class UAnimInstance;
 class AGunParentV2;
 
 UCLASS()
-class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter
+class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter, public IAISightTargetInterface
 {
 	GENERATED_BODY()
 
@@ -24,6 +25,14 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetHp(int NewHp) { HP = NewHp; }// TODO if newHp<0 Death Delegate
+
+	virtual bool CanBeSeenFrom(
+		const FVector& ObserverLocation,
+		FVector& OutSeenLocation,
+		int32& NumberOfLoSChecksPerformed,
+		float& OutSightStrength,
+		const AActor* IgnoreActor = NULL
+	) const;
 		
 
 

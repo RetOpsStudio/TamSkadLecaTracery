@@ -19,6 +19,9 @@ public:
 protected:
 	
 	ETeamAttitude::Type GetTeamAttitudeTowards(const AActor& Other) const override;
+	//override for update pitch control rotation
+	virtual void UpdateControlRotation(float DeltaTime, bool bUpdatePawn = true) override;
+
 	void BeginPlay();
 	void Tick(float DeltaTime);
 };

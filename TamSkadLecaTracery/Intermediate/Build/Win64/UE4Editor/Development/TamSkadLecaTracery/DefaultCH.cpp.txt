@@ -11,3 +11,4 @@ D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Source\TamSka
 D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Intermediate\Build\Win64\UE4Editor\Inc\TamSkadLecaTracery\UE4ManACPP.generated.h
 D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
 D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
+D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Public\Net/UnrealNetwork.h

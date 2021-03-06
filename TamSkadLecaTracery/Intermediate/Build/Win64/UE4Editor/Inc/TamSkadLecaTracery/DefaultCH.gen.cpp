@@ -22,6 +22,13 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_AGunParentV2_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_UAISightTargetInterface_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(ADefaultCH::execUpdateYRot)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpdateYRot_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ADefaultCH::execCalculateMovementDirection)
 	{
 		P_FINISH;
@@ -52,6 +59,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		*(int32*)Z_Param__Result=P_THIS->GetHp();
 		P_NATIVE_END;
 	}
+	static FName NAME_ADefaultCH_UpdateYRot = FName(TEXT("UpdateYRot"));
+	void ADefaultCH::UpdateYRot()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ADefaultCH_UpdateYRot),NULL);
+	}
 	void ADefaultCH::StaticRegisterNativesADefaultCH()
 	{
 		UClass* Class = ADefaultCH::StaticClass();
@@ -60,6 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 			{ "GetHp", &ADefaultCH::execGetHp },
 			{ "SetHp", &ADefaultCH::execSetHp },
 			{ "SetupVariables", &ADefaultCH::execSetupVariables },
+			{ "UpdateYRot", &ADefaultCH::execUpdateYRot },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -195,6 +208,29 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Setup" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "UpdateYRot", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultCH_UpdateYRot()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ADefaultCH_NoRegister()
 	{
 		return ADefaultCH::StaticClass();
@@ -210,6 +246,10 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HP_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_HP;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RotationY_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RotationY;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AimFov_MetaData[];
 #endif
@@ -236,12 +276,15 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		{ &Z_Construct_UFunction_ADefaultCH_GetHp, "GetHp" }, // 2909591495
 		{ &Z_Construct_UFunction_ADefaultCH_SetHp, "SetHp" }, // 2384601985
 		{ &Z_Construct_UFunction_ADefaultCH_SetupVariables, "SetupVariables" }, // 4227976932
+		{ &Z_Construct_UFunction_ADefaultCH_UpdateYRot, "UpdateYRot" }, // 2201502571
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "//USTRUCT(BlueprintType)\n//struct FChStates\n//{\n//\x09GENERATED_BODY()\n//\x09UPROPERTY(BlueprintReadWrite,Replicated , Category = \"Setup\")\n//\x09int Test;\n//\n//\n//};\n" },
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "DefaultCH.h" },
 		{ "ModuleRelativePath", "DefaultCH.h" },
+		{ "ToolTip", "USTRUCT(BlueprintType)\nstruct FChStates\n{\n       GENERATED_BODY()\n       UPROPERTY(BlueprintReadWrite,Replicated , Category = \"Setup\")\n       int Test;\n\n\n};" },
 	};
 #endif
 #if WITH_METADATA
@@ -251,6 +294,13 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	};
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP = { "HP", nullptr, (EPropertyFlags)0x0040000000010001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, HP), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData[] = {
+		{ "Category", "DefaultCH" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY = { "RotationY", "UpdateYRot", (EPropertyFlags)0x0010000100000025, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, RotationY), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData[] = {
 		{ "Category", "Aiming" },
@@ -278,6 +328,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon = { "StartingWeapon", nullptr, (EPropertyFlags)0x0024080000010005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, StartingWeapon), Z_Construct_UClass_AGunParentV2_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultCH_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon,
@@ -312,12 +363,22 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 934616890);
+	IMPLEMENT_CLASS(ADefaultCH, 2223438882);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_ADefaultCH(Z_Construct_UClass_ADefaultCH, &ADefaultCH::StaticClass, TEXT("/Script/TamSkadLecaTracery"), TEXT("ADefaultCH"), false, nullptr, nullptr, nullptr);
+
+	void ADefaultCH::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+	{
+		static const FName Name_RotationY(TEXT("RotationY"));
+
+		const bool bIsValid = true
+			&& Name_RotationY == ClassReps[(int32)ENetFields_Private::RotationY].Property->GetFName();
+
+		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ADefaultCH"));
+	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ADefaultCH);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #ifdef _MSC_VER

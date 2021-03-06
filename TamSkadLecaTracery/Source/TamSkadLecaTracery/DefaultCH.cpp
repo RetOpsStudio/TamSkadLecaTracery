@@ -6,6 +6,8 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/Controller.h"
 #include "Engine/World.h"
+#include "Net/UnrealNetwork.h"
+#include "GameFramework/Actor.h"
 #include "Components/SkeletalMeshComponent.h"
 
 // Sets default values
@@ -13,6 +15,7 @@ ADefaultCH::ADefaultCH()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
+	bReplicates = true;
 	
 	
 	
@@ -89,4 +92,25 @@ bool ADefaultCH::CanBeSeenFrom(const FVector& ObserverLocation, FVector& OutSeen
 	}
 	OutSightStrength = 0;
 	return false;
+}
+
+
+//////////networking /////////////
+
+//Override for networking
+void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(ADefaultCH, RotationY);
+}
+
+
+//Replicates player rotation pitch to other players (must be done by functionName_Implementation())
+void ADefaultCH::UpdateYRot_Implementation()
+{
+	if (HasAuthority())
+	{
+		RotationY = GetControlRotation().Pitch;
+		//UE_LOG(LogTemp, Warning, TEXT("%f"), RotationY);
+	}
 }

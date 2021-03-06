@@ -11,6 +11,16 @@ class UCameraComponent;
 class UAnimInstance;
 class AGunParentV2;
 
+//USTRUCT(BlueprintType)
+//struct FChStates
+//{
+//	GENERATED_BODY()
+//	UPROPERTY(BlueprintReadWrite,Replicated , Category = "Setup")
+//	int Test;
+//
+//
+//};
+
 UCLASS()
 class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter, public IAISightTargetInterface
 {
@@ -65,10 +75,19 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	// for replication
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
 
+	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Setup")
+	void UpdateYRot();
+	void UpdateYRot_Implementation();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = UpdateYRot)
+	float RotationY = 0;
 
 private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	int HP = 100;
+
 };

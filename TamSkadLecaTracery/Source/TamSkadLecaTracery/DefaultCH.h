@@ -11,15 +11,19 @@ class UCameraComponent;
 class UAnimInstance;
 class AGunParentV2;
 
-//USTRUCT(BlueprintType)
-//struct FChStates
-//{
-//	GENERATED_BODY()
-//	UPROPERTY(BlueprintReadWrite,Replicated , Category = "Setup")
-//	int Test;
-//
-//
-//};
+USTRUCT(BlueprintType)
+struct FChStates
+{
+	GENERATED_BODY()
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float RotationY = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool b_IsCrouching = false;
+
+
+};
 
 UCLASS()
 class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter, public IAISightTargetInterface
@@ -27,6 +31,12 @@ class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter, public IAISightTarg
 	GENERATED_BODY()
 
 public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
 	// Sets default values for this character's properties
 	ADefaultCH();
 	
@@ -44,7 +54,19 @@ public:
 		const AActor* IgnoreActor = NULL
 	) const;
 		
+	// for replication
 
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
+
+	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Networking")
+	void UpdateYRot();
+	void UpdateYRot_Implementation();
+
+	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Networking")
+	void UpdateChStates();
+	void UpdateChStates_Implementation();
+
+	
 
 protected:
 	// Called when the game starts or when spawned
@@ -53,7 +75,7 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetupVariables(UAnimInstance* Ref);
 	
-	UFUNCTION(BlueprintCallable, Category = "Setup")
+	UFUNCTION(BlueprintCallable, Category = "ABP")
 	float CalculateMovementDirection() const; //calculates direction for ABP "Direction"
 
 
@@ -68,26 +90,15 @@ protected:
 	float AimFov = 60;
 	
 	UAnimInstance * ABPRef = nullptr;
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	// for replication
-	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
-
-	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Setup")
-	void UpdateYRot();
-	void UpdateYRot_Implementation();
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = UpdateYRot)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = UpdateYRot, Category = "Networking")
 	float RotationY = 0;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = UpdateChStates, Category = "Networking")
+	FChStates States;
 private:
+
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	int HP = 100;
-
 };

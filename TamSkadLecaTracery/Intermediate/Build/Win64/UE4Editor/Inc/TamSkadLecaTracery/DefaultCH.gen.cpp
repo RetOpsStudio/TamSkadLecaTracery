@@ -13,22 +13,117 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 // Cross Module References
+	TAMSKADLECATRACERY_API UScriptStruct* Z_Construct_UScriptStruct_FChStates();
+	UPackage* Z_Construct_UPackage__Script_TamSkadLecaTracery();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_ADefaultCH_NoRegister();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_ADefaultCH();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
-	UPackage* Z_Construct_UPackage__Script_TamSkadLecaTracery();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_AGunParentV2_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_UAISightTargetInterface_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(ADefaultCH::execUpdateYRot)
+class UScriptStruct* FChStates::StaticStruct()
+{
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
 	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->UpdateYRot_Implementation();
-		P_NATIVE_END;
+		extern TAMSKADLECATRACERY_API uint32 Get_Z_Construct_UScriptStruct_FChStates_Hash();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FChStates, Z_Construct_UPackage__Script_TamSkadLecaTracery(), TEXT("ChStates"), sizeof(FChStates), Get_Z_Construct_UScriptStruct_FChStates_Hash());
 	}
+	return Singleton;
+}
+template<> TAMSKADLECATRACERY_API UScriptStruct* StaticStruct<FChStates>()
+{
+	return FChStates::StaticStruct();
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FChStates(FChStates::StaticStruct, TEXT("/Script/TamSkadLecaTracery"), TEXT("ChStates"), false, nullptr, nullptr);
+static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
+{
+	FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates()
+	{
+		UScriptStruct::DeferCppStructOps(FName(TEXT("ChStates")),new UScriptStruct::TCppStructOps<FChStates>);
+	}
+} ScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates;
+	struct Z_Construct_UScriptStruct_FChStates_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_b_IsCrouching_MetaData[];
+#endif
+		static void NewProp_b_IsCrouching_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_b_IsCrouching;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RotationY_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RotationY;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChStates_Statics::Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FChStates_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FChStates>();
+	}
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching_MetaData[] = {
+		{ "Category", "ChStates" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	void Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching_SetBit(void* Obj)
+	{
+		((FChStates*)Obj)->b_IsCrouching = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching = { "b_IsCrouching", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(FChStates), &Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChStates_Statics::NewProp_RotationY_MetaData[] = {
+		{ "Category", "ChStates" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FChStates_Statics::NewProp_RotationY = { "RotationY", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FChStates, RotationY), METADATA_PARAMS(Z_Construct_UScriptStruct_FChStates_Statics::NewProp_RotationY_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChStates_Statics::NewProp_RotationY_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FChStates_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChStates_Statics::NewProp_RotationY,
+	};
+	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FChStates_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_TamSkadLecaTracery,
+		nullptr,
+		&NewStructOps,
+		"ChStates",
+		sizeof(FChStates),
+		alignof(FChStates),
+		Z_Construct_UScriptStruct_FChStates_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChStates_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FChStates_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChStates_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FChStates()
+	{
+#if WITH_HOT_RELOAD
+		extern uint32 Get_Z_Construct_UScriptStruct_FChStates_Hash();
+		UPackage* Outer = Z_Construct_UPackage__Script_TamSkadLecaTracery();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("ChStates"), sizeof(FChStates), Get_Z_Construct_UScriptStruct_FChStates_Hash(), false);
+#else
+		static UScriptStruct* ReturnStruct = nullptr;
+#endif
+		if (!ReturnStruct)
+		{
+			UE4CodeGen_Private::ConstructUScriptStruct(ReturnStruct, Z_Construct_UScriptStruct_FChStates_Statics::ReturnStructParams);
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FChStates_Hash() { return 607262324U; }
 	DEFINE_FUNCTION(ADefaultCH::execCalculateMovementDirection)
 	{
 		P_FINISH;
@@ -42,6 +137,20 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->SetupVariables(Z_Param_Ref);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ADefaultCH::execUpdateChStates)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpdateChStates_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ADefaultCH::execUpdateYRot)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpdateYRot_Implementation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ADefaultCH::execSetHp)
@@ -59,6 +168,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		*(int32*)Z_Param__Result=P_THIS->GetHp();
 		P_NATIVE_END;
 	}
+	static FName NAME_ADefaultCH_UpdateChStates = FName(TEXT("UpdateChStates"));
+	void ADefaultCH::UpdateChStates()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ADefaultCH_UpdateChStates),NULL);
+	}
 	static FName NAME_ADefaultCH_UpdateYRot = FName(TEXT("UpdateYRot"));
 	void ADefaultCH::UpdateYRot()
 	{
@@ -72,6 +186,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 			{ "GetHp", &ADefaultCH::execGetHp },
 			{ "SetHp", &ADefaultCH::execSetHp },
 			{ "SetupVariables", &ADefaultCH::execSetupVariables },
+			{ "UpdateChStates", &ADefaultCH::execUpdateChStates },
 			{ "UpdateYRot", &ADefaultCH::execUpdateYRot },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -95,7 +210,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Setup" },
+		{ "Category", "ABP" },
 		{ "ModuleRelativePath", "DefaultCH.h" },
 	};
 #endif
@@ -208,6 +323,29 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Networking" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "UpdateChStates", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultCH_UpdateChStates()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics
 	{
 #if WITH_METADATA
@@ -217,7 +355,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Setup" },
+		{ "Category", "Networking" },
 		{ "ModuleRelativePath", "DefaultCH.h" },
 	};
 #endif
@@ -247,6 +385,10 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 #endif
 		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_HP;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_States_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_States;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RotationY_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RotationY;
@@ -272,19 +414,18 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_TamSkadLecaTracery,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultCH_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection, "CalculateMovementDirection" }, // 78751880
+		{ &Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection, "CalculateMovementDirection" }, // 1731905740
 		{ &Z_Construct_UFunction_ADefaultCH_GetHp, "GetHp" }, // 2909591495
 		{ &Z_Construct_UFunction_ADefaultCH_SetHp, "SetHp" }, // 2384601985
 		{ &Z_Construct_UFunction_ADefaultCH_SetupVariables, "SetupVariables" }, // 4227976932
-		{ &Z_Construct_UFunction_ADefaultCH_UpdateYRot, "UpdateYRot" }, // 2201502571
+		{ &Z_Construct_UFunction_ADefaultCH_UpdateChStates, "UpdateChStates" }, // 917892739
+		{ &Z_Construct_UFunction_ADefaultCH_UpdateYRot, "UpdateYRot" }, // 3342948865
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "//USTRUCT(BlueprintType)\n//struct FChStates\n//{\n//\x09GENERATED_BODY()\n//\x09UPROPERTY(BlueprintReadWrite,Replicated , Category = \"Setup\")\n//\x09int Test;\n//\n//\n//};\n" },
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "DefaultCH.h" },
 		{ "ModuleRelativePath", "DefaultCH.h" },
-		{ "ToolTip", "USTRUCT(BlueprintType)\nstruct FChStates\n{\n       GENERATED_BODY()\n       UPROPERTY(BlueprintReadWrite,Replicated , Category = \"Setup\")\n       int Test;\n\n\n};" },
 	};
 #endif
 #if WITH_METADATA
@@ -295,12 +436,19 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP = { "HP", nullptr, (EPropertyFlags)0x0040000000010001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, HP), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData[] = {
-		{ "Category", "DefaultCH" },
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_States_MetaData[] = {
+		{ "Category", "Networking" },
 		{ "ModuleRelativePath", "DefaultCH.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY = { "RotationY", "UpdateYRot", (EPropertyFlags)0x0010000100000025, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, RotationY), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_States = { "States", "UpdateChStates", (EPropertyFlags)0x0020080100000025, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, States), Z_Construct_UScriptStruct_FChStates, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_States_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_States_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData[] = {
+		{ "Category", "Networking" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY = { "RotationY", "UpdateYRot", (EPropertyFlags)0x0020080100000025, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, RotationY), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData[] = {
 		{ "Category", "Aiming" },
@@ -328,6 +476,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon = { "StartingWeapon", nullptr, (EPropertyFlags)0x0024080000010005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, StartingWeapon), Z_Construct_UClass_AGunParentV2_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultCH_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_States,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov,
@@ -363,7 +512,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 2223438882);
+	IMPLEMENT_CLASS(ADefaultCH, 1656514101);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();
@@ -373,9 +522,11 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	void ADefaultCH::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
 		static const FName Name_RotationY(TEXT("RotationY"));
+		static const FName Name_States(TEXT("States"));
 
 		const bool bIsValid = true
-			&& Name_RotationY == ClassReps[(int32)ENetFields_Private::RotationY].Property->GetFName();
+			&& Name_RotationY == ClassReps[(int32)ENetFields_Private::RotationY].Property->GetFName()
+			&& Name_States == ClassReps[(int32)ENetFields_Private::States].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ADefaultCH"));
 	}

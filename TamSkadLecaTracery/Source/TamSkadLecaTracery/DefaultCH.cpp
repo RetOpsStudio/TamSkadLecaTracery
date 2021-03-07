@@ -28,6 +28,15 @@ void ADefaultCH::BeginPlay()
 	//Weapon = GetWorld()->SpawnActor(StartingWeapon); //spawns Weapon that can be attached to PrimaryWeapon slot in CH
 }
 
+
+void ADefaultCH::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	
+}
+
+
+/////////setup////////////
 void ADefaultCH::SetupVariables(UAnimInstance* Ref)
 {
 	ABPRef = Ref;
@@ -37,27 +46,10 @@ float ADefaultCH::CalculateMovementDirection() const
 {
 	auto Rotation = GetControlRotation();
 	auto Velocity = GetVelocity();
-	
-	
 	return ABPRef->CalculateDirection(GetVelocity(), FRotator(0,Rotation.Yaw,0));
 }
+///////end of setup///////
 
-
-void ADefaultCH::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	//if (!Weapon)
-	//{
-	//	
-	//	UE_LOG(LogTemp, Warning, TEXT("nimo"));
-	//		//UE_LOG(LogTemp, Warning, TEXT("Text, %d %f %s"), intVar, floatVar, *fstringVar);
-	//}
-	//if (Weapon)
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("jest"));
-	//}
-	//
-}
 
 // Called to bind functionality to input
 void ADefaultCH::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -95,7 +87,7 @@ bool ADefaultCH::CanBeSeenFrom(const FVector& ObserverLocation, FVector& OutSeen
 }
 
 
-//////////networking /////////////
+//////////////////////////////networking //////////////////////////////////////////////
 
 //Override for networking
 void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -103,7 +95,6 @@ void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifeti
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(ADefaultCH, RotationY);
 }
-
 
 //Replicates player rotation pitch to other players (must be done by functionName_Implementation())
 void ADefaultCH::UpdateYRot_Implementation()
@@ -114,3 +105,11 @@ void ADefaultCH::UpdateYRot_Implementation()
 		//UE_LOG(LogTemp, Warning, TEXT("%f"), RotationY);
 	}
 }
+
+void ADefaultCH::UpdateChStates_Implementation()
+{
+	States.RotationY = GetControlRotation().Pitch;
+}
+
+
+//////////////////////////end of networking///////////////////////////////////////////

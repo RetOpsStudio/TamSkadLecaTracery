@@ -18,9 +18,9 @@ struct FChStates
 public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float RotationY = 0;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool b_IsCrouching = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool b_IsJumping = false;
 
 
 };
@@ -46,6 +46,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetHp(int NewHp) { HP = NewHp; }// TODO if newHp<0 Death Delegate
 
+	// determinates is player can be seen by AI
 	virtual bool CanBeSeenFrom(
 		const FVector& ObserverLocation,
 		FVector& OutSeenLocation,
@@ -53,20 +54,26 @@ public:
 		float& OutSightStrength,
 		const AActor* IgnoreActor = NULL
 	) const;
-		
-	// for replication
 
+	///////////networking functions/////////////	
+
+	// for replication
 	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
 
+	// Used for replicating RotationY variable
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Networking")
 	void UpdateYRot();
 	void UpdateYRot_Implementation();
 
+	// Used for replicating struct with ABP states
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Networking")
-	void UpdateChStates();
-	void UpdateChStates_Implementation();
+	void UpdateChStates(FChStates NewStates);
+	void UpdateChStates_Implementation(FChStates NewStates);
 
-	
+	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "UpdateABP_Event"))
+	void UpdateABP();
+
+	/////////end of networking functions//////////
 
 protected:
 	// Called when the game starts or when spawned
@@ -74,7 +81,8 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetupVariables(UAnimInstance* Ref);
-	
+
+	// TODO delete
 	UFUNCTION(BlueprintCallable, Category = "ABP")
 	float CalculateMovementDirection() const; //calculates direction for ABP "Direction"
 
@@ -82,18 +90,22 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AGunParentV2> StartingWeapon;
-	/*UPROPERTY(BlueprintReadWrite)
-	AActor* Weapon = nullptr;*/
+
+	//Normal FOV
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming")
 	float Fov = 90;
+
+	// FOV when Aim down sights
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming")
 	float AimFov = 60;
 	
 	UAnimInstance * ABPRef = nullptr;
 
+	// used to replicate aim direction on Y axis (up and down)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = UpdateYRot, Category = "Networking")
 	float RotationY = 0;
 
+	// struct used to replicate animation states
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = UpdateChStates, Category = "Networking")
 	FChStates States;
 private:

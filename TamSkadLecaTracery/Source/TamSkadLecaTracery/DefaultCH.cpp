@@ -94,6 +94,7 @@ void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifeti
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(ADefaultCH, RotationY);
+	DOREPLIFETIME(ADefaultCH, States);
 }
 
 //Replicates player rotation pitch to other players (must be done by functionName_Implementation())
@@ -106,10 +107,13 @@ void ADefaultCH::UpdateYRot_Implementation()
 	}
 }
 
-void ADefaultCH::UpdateChStates_Implementation()
+void ADefaultCH::UpdateChStates_Implementation(FChStates NewStates)
 {
-	States.RotationY = GetControlRotation().Pitch;
+	if (HasAuthority())
+	{
+		States = NewStates;
+		UpdateABP();
+	}
 }
-
 
 //////////////////////////end of networking///////////////////////////////////////////

@@ -9,6 +9,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UAnimInstance;
+struct FChStates;
 #ifdef TAMSKADLECATRACERY_DefaultCH_generated_h
 #error "DefaultCH.generated.h already included, missing '#pragma once' in DefaultCH.h"
 #endif
@@ -23,7 +24,7 @@ template<> TAMSKADLECATRACERY_API UScriptStruct* StaticStruct<struct FChStates>(
 
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_31_SPARSE_DATA
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_31_RPC_WRAPPERS \
-	virtual void UpdateChStates_Implementation(); \
+	virtual void UpdateChStates_Implementation(FChStates NewStates); \
 	virtual void UpdateYRot_Implementation(); \
  \
 	DECLARE_FUNCTION(execCalculateMovementDirection); \
@@ -44,7 +45,13 @@ template<> TAMSKADLECATRACERY_API UScriptStruct* StaticStruct<struct FChStates>(
 	DECLARE_FUNCTION(execGetHp);
 
 
-#define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_31_EVENT_PARMS
+#define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_31_EVENT_PARMS \
+	struct DefaultCH_eventUpdateChStates_Parms \
+	{ \
+		FChStates NewStates; \
+	};
+
+
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_31_CALLBACK_WRAPPERS
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_31_INCLASS_NO_PURE_DECLS \
 private: \

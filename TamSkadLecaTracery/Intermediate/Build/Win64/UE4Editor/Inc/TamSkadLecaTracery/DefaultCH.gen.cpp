@@ -144,6 +144,14 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		P_THIS->SetupVariables(Z_Param_Ref);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ADefaultCH::execOnRep_SetStates)
+	{
+		P_GET_STRUCT(FChStates,Z_Param_NewStates);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_SetStates(Z_Param_NewStates);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ADefaultCH::execUpdateChStates)
 	{
 		P_GET_STRUCT(FChStates,Z_Param_NewStates);
@@ -154,10 +162,9 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 	}
 	DEFINE_FUNCTION(ADefaultCH::execUpdateYRot)
 	{
-		P_GET_PROPERTY(FFloatProperty,Z_Param_NewRotationY);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->UpdateYRot_Implementation(Z_Param_NewRotationY);
+		P_THIS->UpdateYRot_Implementation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ADefaultCH::execSetHp)
@@ -175,10 +182,10 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		*(int32*)Z_Param__Result=P_THIS->GetHp();
 		P_NATIVE_END;
 	}
-	static FName NAME_ADefaultCH_UpdateABP = FName(TEXT("UpdateABP"));
-	void ADefaultCH::UpdateABP()
+	static FName NAME_ADefaultCH_Event_StatesUpdated = FName(TEXT("Event_StatesUpdated"));
+	void ADefaultCH::Event_StatesUpdated()
 	{
-		ProcessEvent(FindFunctionChecked(NAME_ADefaultCH_UpdateABP),NULL);
+		ProcessEvent(FindFunctionChecked(NAME_ADefaultCH_Event_StatesUpdated),NULL);
 	}
 	static FName NAME_ADefaultCH_UpdateChStates = FName(TEXT("UpdateChStates"));
 	void ADefaultCH::UpdateChStates(FChStates NewStates)
@@ -188,11 +195,9 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		ProcessEvent(FindFunctionChecked(NAME_ADefaultCH_UpdateChStates),&Parms);
 	}
 	static FName NAME_ADefaultCH_UpdateYRot = FName(TEXT("UpdateYRot"));
-	void ADefaultCH::UpdateYRot(float NewRotationY)
+	void ADefaultCH::UpdateYRot()
 	{
-		DefaultCH_eventUpdateYRot_Parms Parms;
-		Parms.NewRotationY=NewRotationY;
-		ProcessEvent(FindFunctionChecked(NAME_ADefaultCH_UpdateYRot),&Parms);
+		ProcessEvent(FindFunctionChecked(NAME_ADefaultCH_UpdateYRot),NULL);
 	}
 	void ADefaultCH::StaticRegisterNativesADefaultCH()
 	{
@@ -200,6 +205,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CalculateMovementDirection", &ADefaultCH::execCalculateMovementDirection },
 			{ "GetHp", &ADefaultCH::execGetHp },
+			{ "OnRep_SetStates", &ADefaultCH::execOnRep_SetStates },
 			{ "SetHp", &ADefaultCH::execSetHp },
 			{ "SetupVariables", &ADefaultCH::execSetupVariables },
 			{ "UpdateChStates", &ADefaultCH::execUpdateChStates },
@@ -242,6 +248,29 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated_Statics::Function_MetaDataParams[] = {
+		{ "DisplayName", "Event_StatesUpdated" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "Event_StatesUpdated", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ADefaultCH_GetHp_Statics
 	{
 		struct DefaultCH_eventGetHp_Parms
@@ -272,6 +301,38 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_GetHp_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics
+	{
+		struct DefaultCH_eventOnRep_SetStates_Parms
+		{
+			FChStates NewStates;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_NewStates;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::NewProp_NewStates = { "NewStates", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultCH_eventOnRep_SetStates_Parms, NewStates), Z_Construct_UScriptStruct_FChStates, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::NewProp_NewStates,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "OnRep_SetStates", nullptr, nullptr, sizeof(DefaultCH_eventOnRep_SetStates_Parms), Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ADefaultCH_OnRep_SetStates()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -341,29 +402,6 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_ADefaultCH_UpdateABP_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_UpdateABP_Statics::Function_MetaDataParams[] = {
-		{ "DisplayName", "UpdateABP_Event" },
-		{ "ModuleRelativePath", "DefaultCH.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_UpdateABP_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "UpdateABP", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_UpdateABP_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_UpdateABP_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ADefaultCH_UpdateABP()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_UpdateABP_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics
 	{
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_NewStates;
@@ -397,16 +435,10 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 	}
 	struct Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics
 	{
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_NewRotationY;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::NewProp_NewRotationY = { "NewRotationY", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultCH_eventUpdateYRot_Parms, NewRotationY), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::NewProp_NewRotationY,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams[] = {
@@ -416,7 +448,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		{ "ToolTip", "Used for replicating RotationY variable" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "UpdateYRot", nullptr, nullptr, sizeof(DefaultCH_eventUpdateYRot_Parms), Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220C40, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "UpdateYRot", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220C40, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_UpdateYRot_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_ADefaultCH_UpdateYRot()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -472,12 +504,13 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultCH_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection, "CalculateMovementDirection" }, // 1310524628
+		{ &Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated, "Event_StatesUpdated" }, // 2797154006
 		{ &Z_Construct_UFunction_ADefaultCH_GetHp, "GetHp" }, // 2909591495
+		{ &Z_Construct_UFunction_ADefaultCH_OnRep_SetStates, "OnRep_SetStates" }, // 1025404486
 		{ &Z_Construct_UFunction_ADefaultCH_SetHp, "SetHp" }, // 2384601985
 		{ &Z_Construct_UFunction_ADefaultCH_SetupVariables, "SetupVariables" }, // 4227976932
-		{ &Z_Construct_UFunction_ADefaultCH_UpdateABP, "UpdateABP" }, // 2900591709
 		{ &Z_Construct_UFunction_ADefaultCH_UpdateChStates, "UpdateChStates" }, // 3026440518
-		{ &Z_Construct_UFunction_ADefaultCH_UpdateYRot, "UpdateYRot" }, // 2881135155
+		{ &Z_Construct_UFunction_ADefaultCH_UpdateYRot, "UpdateYRot" }, // 2197305985
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::Class_MetaDataParams[] = {
@@ -501,7 +534,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		{ "ToolTip", "struct used to replicate animation states" },
 	};
 #endif
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_States = { "States", nullptr, (EPropertyFlags)0x0020080000000025, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, States), Z_Construct_UScriptStruct_FChStates, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_States_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_States_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_States = { "States", "OnRep_SetStates", (EPropertyFlags)0x0020080100000025, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, States), Z_Construct_UScriptStruct_FChStates, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_States_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_States_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData[] = {
 		{ "Category", "Networking" },
@@ -576,7 +609,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 4145768965);
+	IMPLEMENT_CLASS(ADefaultCH, 333683168);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();

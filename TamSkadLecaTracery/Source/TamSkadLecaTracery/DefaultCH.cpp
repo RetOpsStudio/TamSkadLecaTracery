@@ -57,6 +57,7 @@ void ADefaultCH::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
+
 //canBeSeenFrom method for Ai perception sight 
 bool ADefaultCH::CanBeSeenFrom(const FVector& ObserverLocation, FVector& OutSeenLocation, int32& NumberOfLoSChecksPerformed, float& OutSightStrength, const AActor* IgnoreActor) const
 {
@@ -94,16 +95,17 @@ void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifeti
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME_CONDITION(ADefaultCH, RotationY, COND_SimulatedOnly);
-	DOREPLIFETIME_CONDITION(ADefaultCH, States,COND_SkipOwner);
+	DOREPLIFETIME(ADefaultCH, States);
 }
 
+
+
 //Replicates player rotation pitch to other players (must be done by functionName_Implementation())
-void ADefaultCH::UpdateYRot_Implementation(float NewRotationY)
+void ADefaultCH::UpdateYRot_Implementation()
 {
 	if (!GetOwner()) { return; }
 	if (HasAuthority())
 	{
-		//RotationY = NewRotationY;
 		RotationY = GetControlRotation().Pitch;	
 	}
 }
@@ -113,8 +115,14 @@ void ADefaultCH::UpdateChStates_Implementation(FChStates NewStates)
 	if (HasAuthority())
 	{
 		States = NewStates;
-		UpdateABP();
+		OnRep_SetStates(NewStates);		
 	}
 }
+
+void ADefaultCH::OnRep_SetStates(FChStates NewStates)
+{
+	Event_StatesUpdated();
+}
+
 
 //////////////////////////end of networking///////////////////////////////////////////

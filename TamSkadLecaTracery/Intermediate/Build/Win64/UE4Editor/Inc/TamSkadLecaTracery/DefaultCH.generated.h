@@ -25,10 +25,11 @@ template<> TAMSKADLECATRACERY_API UScriptStruct* StaticStruct<struct FChStates>(
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_31_SPARSE_DATA
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_DefaultCH_h_31_RPC_WRAPPERS \
 	virtual void UpdateChStates_Implementation(FChStates NewStates); \
-	virtual void UpdateYRot_Implementation(float NewRotationY); \
+	virtual void UpdateYRot_Implementation(); \
  \
 	DECLARE_FUNCTION(execCalculateMovementDirection); \
 	DECLARE_FUNCTION(execSetupVariables); \
+	DECLARE_FUNCTION(execOnRep_SetStates); \
 	DECLARE_FUNCTION(execUpdateChStates); \
 	DECLARE_FUNCTION(execUpdateYRot); \
 	DECLARE_FUNCTION(execSetHp); \
@@ -39,6 +40,7 @@ template<> TAMSKADLECATRACERY_API UScriptStruct* StaticStruct<struct FChStates>(
  \
 	DECLARE_FUNCTION(execCalculateMovementDirection); \
 	DECLARE_FUNCTION(execSetupVariables); \
+	DECLARE_FUNCTION(execOnRep_SetStates); \
 	DECLARE_FUNCTION(execUpdateChStates); \
 	DECLARE_FUNCTION(execUpdateYRot); \
 	DECLARE_FUNCTION(execSetHp); \
@@ -49,10 +51,6 @@ template<> TAMSKADLECATRACERY_API UScriptStruct* StaticStruct<struct FChStates>(
 	struct DefaultCH_eventUpdateChStates_Parms \
 	{ \
 		FChStates NewStates; \
-	}; \
-	struct DefaultCH_eventUpdateYRot_Parms \
-	{ \
-		float NewRotationY; \
 	};
 
 

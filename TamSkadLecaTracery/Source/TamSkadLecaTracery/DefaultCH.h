@@ -62,19 +62,20 @@ public:
 
 	// Used for replicating RotationY variable
 	UFUNCTION(BlueprintCallable, Server, Unreliable, Category = "Networking")
-	void UpdateYRot(float NewRotationY);
-	void UpdateYRot_Implementation(float NewRotationY);
+	void UpdateYRot();
+	void UpdateYRot_Implementation();
 
 	// Used for replicating struct with ABP states
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Networking")
 	void UpdateChStates(FChStates NewStates);
 	void UpdateChStates_Implementation(FChStates NewStates);
 
-	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "UpdateABP_Event"))
-	void UpdateABP();
+	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "Event_StatesUpdated"))
+	void Event_StatesUpdated();
 
-	/////////end of networking functions//////////
-
+	UFUNCTION()
+	void OnRep_SetStates(FChStates NewStates);
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -106,7 +107,7 @@ protected:
 	float RotationY = 0;
 
 	// struct used to replicate animation states
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Networking")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_SetStates, Category = "Networking")
 	FChStates States;
 private:
 

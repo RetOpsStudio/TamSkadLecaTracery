@@ -13,8 +13,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 // Cross Module References
-	TAMSKADLECATRACERY_API UScriptStruct* Z_Construct_UScriptStruct_FChStates();
+	TAMSKADLECATRACERY_API UEnum* Z_Construct_UEnum_TamSkadLecaTracery_E_PlayerStatus();
 	UPackage* Z_Construct_UPackage__Script_TamSkadLecaTracery();
+	TAMSKADLECATRACERY_API UScriptStruct* Z_Construct_UScriptStruct_FChStates();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_ADefaultCH_NoRegister();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_ADefaultCH();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
@@ -23,6 +24,69 @@ void EmptyLinkFunctionForGeneratedCodeDefaultCH() {}
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_AGunParentV2_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_UAISightTargetInterface_NoRegister();
 // End Cross Module References
+	static UEnum* E_PlayerStatus_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_TamSkadLecaTracery_E_PlayerStatus, Z_Construct_UPackage__Script_TamSkadLecaTracery(), TEXT("E_PlayerStatus"));
+		}
+		return Singleton;
+	}
+	template<> TAMSKADLECATRACERY_API UEnum* StaticEnum<E_PlayerStatus>()
+	{
+		return E_PlayerStatus_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_E_PlayerStatus(E_PlayerStatus_StaticEnum, TEXT("/Script/TamSkadLecaTracery"), TEXT("E_PlayerStatus"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_TamSkadLecaTracery_E_PlayerStatus_Hash() { return 3839695652U; }
+	UEnum* Z_Construct_UEnum_TamSkadLecaTracery_E_PlayerStatus()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_TamSkadLecaTracery();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("E_PlayerStatus"), 0, Get_Z_Construct_UEnum_TamSkadLecaTracery_E_PlayerStatus_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "E_PlayerStatus::Idle", (int64)E_PlayerStatus::Idle },
+				{ "E_PlayerStatus::Firing", (int64)E_PlayerStatus::Firing },
+				{ "E_PlayerStatus::Reloading", (int64)E_PlayerStatus::Reloading },
+				{ "E_PlayerStatus::Dead", (int64)E_PlayerStatus::Dead },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "Comment", "// enum used to switch between animation states\n" },
+				{ "Dead.DisplayName", "Dead" },
+				{ "Dead.Name", "E_PlayerStatus::Dead" },
+				{ "Firing.DisplayName", "Firing" },
+				{ "Firing.Name", "E_PlayerStatus::Firing" },
+				{ "Idle.DisplayName", "Idle" },
+				{ "Idle.Name", "E_PlayerStatus::Idle" },
+				{ "ModuleRelativePath", "DefaultCH.h" },
+				{ "Reloading.DisplayName", "Reloading" },
+				{ "Reloading.Name", "E_PlayerStatus::Reloading" },
+				{ "ToolTip", "enum used to switch between animation states" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_TamSkadLecaTracery,
+				nullptr,
+				"E_PlayerStatus",
+				"E_PlayerStatus",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 class UScriptStruct* FChStates::StaticStruct()
 {
 	static class UScriptStruct* Singleton = NULL;
@@ -52,6 +116,11 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 #endif
 		static void* NewStructOps();
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentStatus_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_CurrentStatus;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_CurrentStatus_Underlying;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_b_IsJumping_MetaData[];
 #endif
 		static void NewProp_b_IsJumping_SetBit(void* Obj);
@@ -67,13 +136,23 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChStates_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+		{ "Comment", "// struct used to replicate player animation states\n" },
 		{ "ModuleRelativePath", "DefaultCH.h" },
+		{ "ToolTip", "struct used to replicate player animation states" },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FChStates_Statics::NewStructOps()
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FChStates>();
 	}
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChStates_Statics::NewProp_CurrentStatus_MetaData[] = {
+		{ "Category", "ChStates" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FChStates_Statics::NewProp_CurrentStatus = { "CurrentStatus", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FChStates, CurrentStatus), Z_Construct_UEnum_TamSkadLecaTracery_E_PlayerStatus, METADATA_PARAMS(Z_Construct_UScriptStruct_FChStates_Statics::NewProp_CurrentStatus_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChStates_Statics::NewProp_CurrentStatus_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FChStates_Statics::NewProp_CurrentStatus_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsJumping_MetaData[] = {
 		{ "Category", "ChStates" },
@@ -97,6 +176,8 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching = { "b_IsCrouching", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(FChStates), &Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching_SetBit, METADATA_PARAMS(Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FChStates_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChStates_Statics::NewProp_CurrentStatus,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChStates_Statics::NewProp_CurrentStatus_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsJumping,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FChStates_Statics::NewProp_b_IsCrouching,
 	};
@@ -128,14 +209,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FChStates_Hash() { return 991632231U; }
-	DEFINE_FUNCTION(ADefaultCH::execCalculateMovementDirection)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->CalculateMovementDirection();
-		P_NATIVE_END;
-	}
+	uint32 Get_Z_Construct_UScriptStruct_FChStates_Hash() { return 1065920554U; }
 	DEFINE_FUNCTION(ADefaultCH::execSetupVariables)
 	{
 		P_GET_OBJECT(UAnimInstance,Z_Param_Ref);
@@ -203,7 +277,6 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 	{
 		UClass* Class = ADefaultCH::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "CalculateMovementDirection", &ADefaultCH::execCalculateMovementDirection },
 			{ "GetHp", &ADefaultCH::execGetHp },
 			{ "OnRep_SetStates", &ADefaultCH::execOnRep_SetStates },
 			{ "SetHp", &ADefaultCH::execSetHp },
@@ -212,41 +285,6 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 			{ "UpdateYRot", &ADefaultCH::execUpdateYRot },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics
-	{
-		struct DefaultCH_eventCalculateMovementDirection_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DefaultCH_eventCalculateMovementDirection_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::Function_MetaDataParams[] = {
-		{ "Category", "ABP" },
-		{ "Comment", "// TODO delete\n" },
-		{ "ModuleRelativePath", "DefaultCH.h" },
-		{ "ToolTip", "TODO delete" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "CalculateMovementDirection", nullptr, nullptr, sizeof(DefaultCH_eventCalculateMovementDirection_Parms), Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated_Statics
 	{
@@ -418,9 +456,9 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Networking" },
-		{ "Comment", "// Used for replicating struct with ABP states\n" },
+		{ "Comment", "// Used for replicating struct with animation states\n" },
 		{ "ModuleRelativePath", "DefaultCH.h" },
-		{ "ToolTip", "Used for replicating struct with ABP states" },
+		{ "ToolTip", "Used for replicating struct with animation states" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "UpdateChStates", nullptr, nullptr, sizeof(DefaultCH_eventUpdateChStates_Parms), Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_UpdateChStates_Statics::Function_MetaDataParams)) };
@@ -470,17 +508,18 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentStatus_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_CurrentStatus;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_CurrentStatus_Underlying;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HP_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_HP;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_States_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartingWeapon_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_States;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RotationY_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RotationY;
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_StartingWeapon;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AimFov_MetaData[];
 #endif
@@ -490,9 +529,13 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Fov;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartingWeapon_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_States_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FClassPropertyParams NewProp_StartingWeapon;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_States;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RotationY_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RotationY;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -503,13 +546,12 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		(UObject* (*)())Z_Construct_UPackage__Script_TamSkadLecaTracery,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultCH_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ADefaultCH_CalculateMovementDirection, "CalculateMovementDirection" }, // 1310524628
 		{ &Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated, "Event_StatesUpdated" }, // 2797154006
 		{ &Z_Construct_UFunction_ADefaultCH_GetHp, "GetHp" }, // 2909591495
 		{ &Z_Construct_UFunction_ADefaultCH_OnRep_SetStates, "OnRep_SetStates" }, // 1025404486
 		{ &Z_Construct_UFunction_ADefaultCH_SetHp, "SetHp" }, // 2384601985
 		{ &Z_Construct_UFunction_ADefaultCH_SetupVariables, "SetupVariables" }, // 4227976932
-		{ &Z_Construct_UFunction_ADefaultCH_UpdateChStates, "UpdateChStates" }, // 3026440518
+		{ &Z_Construct_UFunction_ADefaultCH_UpdateChStates, "UpdateChStates" }, // 3523256259
 		{ &Z_Construct_UFunction_ADefaultCH_UpdateYRot, "UpdateYRot" }, // 2197305985
 	};
 #if WITH_METADATA
@@ -520,12 +562,50 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_CurrentStatus_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "ABP" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_CurrentStatus = { "CurrentStatus", nullptr, (EPropertyFlags)0x0040000000010005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, CurrentStatus), Z_Construct_UEnum_TamSkadLecaTracery_E_PlayerStatus, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_CurrentStatus_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_CurrentStatus_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_CurrentStatus_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Setup" },
 		{ "ModuleRelativePath", "DefaultCH.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP = { "HP", nullptr, (EPropertyFlags)0x0040000000010001, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, HP), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Setup" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon = { "StartingWeapon", nullptr, (EPropertyFlags)0x0044000000010005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, StartingWeapon), Z_Construct_UClass_AGunParentV2_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Aiming" },
+		{ "Comment", "// FOV when Aim down sights\n" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+		{ "ToolTip", "FOV when Aim down sights" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov = { "AimFov", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, AimFov), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Aiming" },
+		{ "Comment", "//Normal FOV\n" },
+		{ "ModuleRelativePath", "DefaultCH.h" },
+		{ "ToolTip", "Normal FOV" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov = { "Fov", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, Fov), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_States_MetaData[] = {
 		{ "Category", "Networking" },
@@ -544,40 +624,15 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY = { "RotationY", nullptr, (EPropertyFlags)0x0020080000000025, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, RotationY), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData[] = {
-		{ "Category", "Aiming" },
-		{ "Comment", "// FOV when Aim down sights\n" },
-		{ "ModuleRelativePath", "DefaultCH.h" },
-		{ "ToolTip", "FOV when Aim down sights" },
-	};
-#endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov = { "AimFov", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, AimFov), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData[] = {
-		{ "Category", "Aiming" },
-		{ "Comment", "//Normal FOV\n" },
-		{ "ModuleRelativePath", "DefaultCH.h" },
-		{ "ToolTip", "Normal FOV" },
-	};
-#endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov = { "Fov", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, Fov), METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData[] = {
-		{ "Category", "Setup" },
-		{ "Comment", "//calculates direction for ABP \"Direction\"\n" },
-		{ "ModuleRelativePath", "DefaultCH.h" },
-		{ "ToolTip", "calculates direction for ABP \"Direction\"" },
-	};
-#endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon = { "StartingWeapon", nullptr, (EPropertyFlags)0x0024080000010005, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADefaultCH, StartingWeapon), Z_Construct_UClass_AGunParentV2_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultCH_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_CurrentStatus,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_CurrentStatus_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_HP,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_States,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_AimFov,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_Fov,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_StartingWeapon,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_States,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultCH_Statics::NewProp_RotationY,
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ADefaultCH_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAISightTargetInterface_NoRegister, (int32)VTABLE_OFFSET(ADefaultCH, IAISightTargetInterface), false },
@@ -609,7 +664,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 333683168);
+	IMPLEMENT_CLASS(ADefaultCH, 1687768886);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();

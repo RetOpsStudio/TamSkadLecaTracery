@@ -10,7 +10,17 @@
 class UCameraComponent;
 class UAnimInstance;
 class AGunParentV2;
+// enum used to switch between animation states
+UENUM(BlueprintType)
+enum class E_PlayerStatus : uint8
+{
+	Idle		UMETA(DisplayName = "Idle"),
+	Firing      UMETA(DisplayName = "Firing"),
+	Reloading   UMETA(DisplayName = "Reloading"),
+	Dead		UMETA(DisplayName = "Dead")
+};
 
+// struct used to replicate player animation states
 USTRUCT(BlueprintType)
 struct FChStates
 {
@@ -21,8 +31,8 @@ public:
 	bool b_IsCrouching = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool b_IsJumping = false;
-
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	E_PlayerStatus CurrentStatus = E_PlayerStatus::Idle;
 };
 
 UCLASS()
@@ -31,11 +41,6 @@ class TAMSKADLECATRACERY_API ADefaultCH : public ACharacter, public IAISightTarg
 	GENERATED_BODY()
 
 public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	// Sets default values for this character's properties
 	ADefaultCH();
@@ -57,15 +62,12 @@ public:
 
 	///////////networking functions/////////////	
 
-	// for replication
-	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
-
 	// Used for replicating RotationY variable
 	UFUNCTION(BlueprintCallable, Server, Unreliable, Category = "Networking")
 	void UpdateYRot();
 	void UpdateYRot_Implementation();
 
-	// Used for replicating struct with ABP states
+	// Used for replicating struct with animation states
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Networking")
 	void UpdateChStates(FChStates NewStates);
 	void UpdateChStates_Implementation(FChStates NewStates);
@@ -80,27 +82,18 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	// for replication
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
+
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void SetupVariables(UAnimInstance* Ref);
 
-	// TODO delete
-	UFUNCTION(BlueprintCallable, Category = "ABP")
-	float CalculateMovementDirection() const; //calculates direction for ABP "Direction"
-
-
-
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Setup")
-	TSubclassOf<AGunParentV2> StartingWeapon;
-
-	//Normal FOV
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming")
-	float Fov = 90;
-
-	// FOV when Aim down sights
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming")
-	float AimFov = 60;
-	
-	UAnimInstance * ABPRef = nullptr;
 
 	// used to replicate aim direction on Y axis (up and down)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Networking")
@@ -109,9 +102,24 @@ protected:
 	// struct used to replicate animation states
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_SetStates, Category = "Networking")
 	FChStates States;
+
 private:
+	//Normal FOV
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming", meta = (AllowPrivateAccess = "true"))
+	float Fov = 90;
 
+	// FOV when Aim down sights
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming", meta = (AllowPrivateAccess = "true"))
+	float AimFov = 60;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Setup", meta = (AllowPrivateAccess = "true"))
+	TSubclassOf<AGunParentV2> StartingWeapon;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup", meta = (AllowPrivateAccess = "true"))
 	int HP = 100;
+
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "ABP", meta = (AllowPrivateAccess = "true"))
+	E_PlayerStatus CurrentStatus = E_PlayerStatus::Idle;
+
+	UAnimInstance * ABPRef = nullptr;
 };

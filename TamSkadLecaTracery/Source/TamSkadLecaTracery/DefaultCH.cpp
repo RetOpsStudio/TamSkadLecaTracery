@@ -93,17 +93,18 @@ bool ADefaultCH::CanBeSeenFrom(const FVector& ObserverLocation, FVector& OutSeen
 void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-	DOREPLIFETIME(ADefaultCH, RotationY);
-	DOREPLIFETIME(ADefaultCH, States);
+	DOREPLIFETIME_CONDITION(ADefaultCH, RotationY, COND_SimulatedOnly);
+	DOREPLIFETIME_CONDITION(ADefaultCH, States,COND_SkipOwner);
 }
 
 //Replicates player rotation pitch to other players (must be done by functionName_Implementation())
-void ADefaultCH::UpdateYRot_Implementation()
+void ADefaultCH::UpdateYRot_Implementation(float NewRotationY)
 {
+	if (!GetOwner()) { return; }
 	if (HasAuthority())
 	{
-		RotationY = GetControlRotation().Pitch;
-		//UE_LOG(LogTemp, Warning, TEXT("%f"), RotationY);
+		//RotationY = NewRotationY;
+		RotationY = GetControlRotation().Pitch;	
 	}
 }
 

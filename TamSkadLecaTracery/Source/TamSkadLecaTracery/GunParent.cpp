@@ -22,18 +22,24 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 	}
 	if (InMagAmmo > 0)
 	{
-	
-		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);   ///spawning bullet from template
-		if (!Bullet) { return; }
-		Bullet->PawnControllerRef = ControllerRef;
-		Bullet->PlayerControllerID = PlayerControlerID;
-		Bullet->SetLifeSpan(BulletLifeTime);
-		Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
-		
-		InMagAmmo--;
+		// spawn muzzle flash
 		if (MuzzleFlash && AttachTo)
 		{
 			UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, AttachTo, FName("Bullet"));  //spawning particle from template
+		}
+		// spawn bullet in server
+		if (HasAuthority())
+		{
+			auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);   ///spawning bullet from template
+
+			if (!Bullet) { return; }
+
+			Bullet->PawnControllerRef = ControllerRef;
+			Bullet->PlayerControllerID = PlayerControlerID;
+			Bullet->SetLifeSpan(BulletLifeTime);
+			Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
+		
+			InMagAmmo--;
 		}
 	}
 	

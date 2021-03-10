@@ -61,9 +61,9 @@ public:
 	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
 
 	// Used for replicating RotationY variable
-	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Networking")
-	void UpdateYRot();
-	void UpdateYRot_Implementation();
+	UFUNCTION(BlueprintCallable, Server, Unreliable, Category = "Networking")
+	void UpdateYRot(float NewRotationY);
+	void UpdateYRot_Implementation(float NewRotationY);
 
 	// Used for replicating struct with ABP states
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "Networking")
@@ -102,11 +102,11 @@ protected:
 	UAnimInstance * ABPRef = nullptr;
 
 	// used to replicate aim direction on Y axis (up and down)
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = UpdateYRot, Category = "Networking")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Networking")
 	float RotationY = 0;
 
 	// struct used to replicate animation states
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = UpdateChStates, Category = "Networking")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Networking")
 	FChStates States;
 private:
 

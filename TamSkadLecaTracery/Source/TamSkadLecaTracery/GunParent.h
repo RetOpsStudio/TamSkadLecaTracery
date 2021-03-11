@@ -43,10 +43,13 @@ public:
 
 	
 protected:
+	// for replication
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
 	int MagazineSize= 30;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Ammo")
 	int InMagAmmo = MagazineSize;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ammo")

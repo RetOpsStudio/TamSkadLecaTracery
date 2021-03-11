@@ -364,7 +364,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		{ "ModuleRelativePath", "DefaultCH.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "OnRep_SetStates", nullptr, nullptr, sizeof(DefaultCH_eventOnRep_SetStates_Parms), Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultCH, nullptr, "OnRep_SetStates", nullptr, nullptr, sizeof(DefaultCH_eventOnRep_SetStates_Parms), Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultCH_OnRep_SetStates_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_ADefaultCH_OnRep_SetStates()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -548,7 +548,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultCH_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ADefaultCH_Event_StatesUpdated, "Event_StatesUpdated" }, // 2797154006
 		{ &Z_Construct_UFunction_ADefaultCH_GetHp, "GetHp" }, // 2909591495
-		{ &Z_Construct_UFunction_ADefaultCH_OnRep_SetStates, "OnRep_SetStates" }, // 1025404486
+		{ &Z_Construct_UFunction_ADefaultCH_OnRep_SetStates, "OnRep_SetStates" }, // 2723707384
 		{ &Z_Construct_UFunction_ADefaultCH_SetHp, "SetHp" }, // 2384601985
 		{ &Z_Construct_UFunction_ADefaultCH_SetupVariables, "SetupVariables" }, // 4227976932
 		{ &Z_Construct_UFunction_ADefaultCH_UpdateChStates, "UpdateChStates" }, // 3523256259
@@ -664,7 +664,7 @@ static struct FScriptStruct_TamSkadLecaTracery_StaticRegisterNativesFChStates
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADefaultCH, 1687768886);
+	IMPLEMENT_CLASS(ADefaultCH, 3761789987);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ADefaultCH>()
 	{
 		return ADefaultCH::StaticClass();

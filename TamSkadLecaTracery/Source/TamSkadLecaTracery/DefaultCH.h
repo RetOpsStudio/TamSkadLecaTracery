@@ -75,7 +75,7 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "Event_StatesUpdated"))
 	void Event_StatesUpdated();
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void OnRep_SetStates(FChStates NewStates);
 	
 protected:

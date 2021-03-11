@@ -4,6 +4,7 @@
 #include "GunParent.h"
 #include "BulletParent.h"
 #include "Engine/EngineTypes.h"
+#include "Net/UnrealNetwork.h"
 #include "Kismet/GameplayStatics.h"
 
 AGunParentV2::AGunParentV2()
@@ -78,4 +79,12 @@ void AGunParentV2::FillMagFromAmmoLeft()
 		CarryOnAmmo -= InMagAmmo - AmmoDifference;
 	}
 	//UE_LOG(LogTemp, Warning, TEXT("Xd"));
+}
+
+// networking
+void AGunParentV2::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	
+	DOREPLIFETIME(AGunParentV2, InMagAmmo);
 }

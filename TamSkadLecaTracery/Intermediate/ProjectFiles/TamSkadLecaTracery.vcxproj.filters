@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TamSkadLecaTracery.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{1C14F568-E694-4509-B5BC-A4432F180CF4}</UniqueIdentifier>
+      <UniqueIdentifier>{5BA910BB-B16E-4460-A5A5-5FB40B5F2CC8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TamSkadLecaTracery.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{6536050E-E49E-40CC-83C7-D40567D337D2}</UniqueIdentifier>
+      <UniqueIdentifier>{F6640774-D5B3-43DE-8B4F-3990E59AEBFC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TamSkadLecaTracery">
-      <UniqueIdentifier>{A0B1DCE0-BB1D-4E90-92BA-4B81B2FF0DC3}</UniqueIdentifier>
+      <UniqueIdentifier>{52332337-6A17-458C-AA01-A5C3761CE21C}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\AiControllerParent.cpp">
       <Filter>Source\TamSkadLecaTracery</Filter>
@@ -45,12 +45,6 @@
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TamSkadLecaTracery\BulletParent.h">
-      <Filter>Source\TamSkadLecaTracery</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\TamSkadLecaTracery\ChAiPerception.cpp">
-      <Filter>Source\TamSkadLecaTracery</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TamSkadLecaTracery\ChAiPerception.h">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\DefaultCH.cpp">
@@ -71,16 +65,22 @@
     <ClInclude Include="..\..\Source\TamSkadLecaTracery\GunParent.h">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\TamSkadLecaTracery\GunParentV2.cpp">
-      <Filter>Source\TamSkadLecaTracery</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TamSkadLecaTracery\GunParentV2.h">
-      <Filter>Source\TamSkadLecaTracery</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\HitBox.cpp">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TamSkadLecaTracery\HitBox.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\SpawnManagerParent.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\SpawnManagerParent.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\SpawnPointParent.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\SpawnPointParent.h">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClInclude>
     <None Include="..\..\Source\TamSkadLecaTracery\TamSkadLecaTracery.Build.cs">

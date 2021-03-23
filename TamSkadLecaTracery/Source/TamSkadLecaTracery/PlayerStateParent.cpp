@@ -2,4 +2,10 @@
 
 
 #include "PlayerStateParent.h"
+#include "Net/UnrealNetwork.h"
 
+void APlayerStateParent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(APlayerStateParent, Kills);
+}

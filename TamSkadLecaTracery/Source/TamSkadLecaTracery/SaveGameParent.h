@@ -15,12 +15,12 @@ class TAMSKADLECATRACERY_API USaveGameParent : public USaveGame
 	GENERATED_BODY()
 public:
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Basic)
-    FString PlayerName;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Basic")
+    FString PlayerName = FString("DefaultPlayerName");
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Basic)
-    FString SaveSlotName;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Basic")
+    FString SaveSlotName = FString("DefaultSlotName");
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Basic)
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Basic")
     int UserIndex;
 };

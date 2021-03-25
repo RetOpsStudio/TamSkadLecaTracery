@@ -15,3 +15,4 @@ TArray<APlayerState*> AGameStateParent::SortByScore(TArray<APlayerState*> ArrToS
 	return ArrToSort;
 }
 
+

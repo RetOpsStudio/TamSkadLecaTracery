@@ -14,10 +14,12 @@ UCLASS()
 class TAMSKADLECATRACERY_API AGameStateParent : public AGameStateBase
 {
 	GENERATED_BODY()
-
-	UFUNCTION(BlueprintCallable, Category = "Utility")
-		TArray<APlayerState*> SortByScore(TArray<APlayerState* > ArrToSort);
-protected:
+public:
 	//sort player array by player score
+	UFUNCTION(BlueprintCallable, Category = "Utility")
+	TArray<APlayerState*> SortByScore(TArray<APlayerState* > ArrToSort);
+
+
+protected:
 	
 };

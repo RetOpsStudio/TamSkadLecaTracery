@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTracery_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x04C35BB3,
+				0x1F10A4C8,
 				0x2B14348F,
 				METADATA_PARAMS(nullptr, 0)
 			};

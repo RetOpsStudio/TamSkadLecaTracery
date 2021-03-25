@@ -1,2 +1,17 @@
 D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Intermediate\Build\Win64\UE4Editor\Development\TamSkadLecaTracery\Definitions.TamSkadLecaTracery.h
 D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Source\TamSkadLecaTracery\TamSkadLecaTracery.h
+D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Source\TamSkadLecaTracery\SaveGameParent.h
+D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\GameFramework/SaveGame.h
+D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SaveGame.generated.h
+D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Intermediate\Build\Win64\UE4Editor\Inc\TamSkadLecaTracery\SaveGameParent.generated.h
+D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
+D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
+D:\unreal\UE_4.25\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\Engine/CollisionProfile.h
+D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CollisionProfile.generated.h
+D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
+D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
+D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
+D:\unreal\UE_4.25\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
+D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
+D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h

@@ -78,6 +78,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnRep_SetStates(FChStates NewStates);
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setup")
+	TSubclassOf<AGunParentV2> PrimaryWeaponClass;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -112,8 +114,6 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming", meta = (AllowPrivateAccess = "true"))
 	float AimFov = 60;
 
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Setup", meta = (AllowPrivateAccess = "true"))
-	TSubclassOf<AGunParentV2> StartingWeapon;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup", meta = (AllowPrivateAccess = "true"))
 	int HP = 100;

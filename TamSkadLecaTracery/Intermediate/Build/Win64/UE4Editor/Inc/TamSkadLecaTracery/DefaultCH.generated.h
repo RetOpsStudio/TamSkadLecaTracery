@@ -116,7 +116,6 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADefaultCH); \
 	FORCEINLINE static uint32 __PPO__States() { return STRUCT_OFFSET(ADefaultCH, States); } \
 	FORCEINLINE static uint32 __PPO__Fov() { return STRUCT_OFFSET(ADefaultCH, Fov); } \
 	FORCEINLINE static uint32 __PPO__AimFov() { return STRUCT_OFFSET(ADefaultCH, AimFov); } \
-	FORCEINLINE static uint32 __PPO__StartingWeapon() { return STRUCT_OFFSET(ADefaultCH, StartingWeapon); } \
 	FORCEINLINE static uint32 __PPO__HP() { return STRUCT_OFFSET(ADefaultCH, HP); } \
 	FORCEINLINE static uint32 __PPO__CurrentStatus() { return STRUCT_OFFSET(ADefaultCH, CurrentStatus); }
 

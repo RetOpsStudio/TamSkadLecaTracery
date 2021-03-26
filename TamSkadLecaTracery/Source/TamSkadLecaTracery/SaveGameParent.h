@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/SaveGame.h"
+#include "GunParent.h"
 #include "SaveGameParent.generated.h"
 
 /**
@@ -23,4 +24,8 @@ public:
 
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Basic")
     int UserIndex;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Loadout")
+    TSubclassOf<AGunParentV2> PrimaryWeaponClass;
+
 };

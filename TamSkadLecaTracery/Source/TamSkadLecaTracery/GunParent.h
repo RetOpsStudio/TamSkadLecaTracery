@@ -12,6 +12,13 @@ class USceneComponent;
 /**
  * 
  */
+UENUM(BlueprintType)
+enum class E_GunID : uint8
+{
+	AR		UMETA(DisplayName = "AR"),
+	AK      UMETA(DisplayName = "AK")
+};
+
 UCLASS()
 class TAMSKADLECATRACERY_API AGunParentV2 : public ASkeletalMeshActor
 {

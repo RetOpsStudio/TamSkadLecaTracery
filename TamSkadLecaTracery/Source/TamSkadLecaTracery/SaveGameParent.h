@@ -28,4 +28,8 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Loadout")
     TSubclassOf<AGunParentV2> PrimaryWeaponClass;
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Loadout")
+    E_GunID PrimaryGunID = E_GunID::AK;
+
+
 };

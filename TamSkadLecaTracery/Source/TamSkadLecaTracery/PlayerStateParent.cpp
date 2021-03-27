@@ -8,4 +8,5 @@ void APlayerStateParent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(APlayerStateParent, Kills);
+	DOREPLIFETIME(APlayerStateParent, Deaths);
 }

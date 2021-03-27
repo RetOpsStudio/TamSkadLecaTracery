@@ -15,7 +15,10 @@ class TAMSKADLECATRACERY_API APlayerStateParent : public APlayerState
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category="Statistics")
-	int Kills = 4;
+	int Kills = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Statistics")
+	int Deaths = 0;
 
 protected:
 	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const;

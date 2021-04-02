@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TamSkadLecaTracery.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{D3A6DB77-CE2C-4B65-BD04-1A1ABFD053F7}</UniqueIdentifier>
+      <UniqueIdentifier>{27645BD8-F8FA-484D-8A14-77624E7EB89F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TamSkadLecaTracery.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{C44CC2B9-01A2-4630-86D2-5DE5A9116B56}</UniqueIdentifier>
+      <UniqueIdentifier>{BBD59A9D-0A87-4E94-8F65-097D01DA090B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TamSkadLecaTracery">
-      <UniqueIdentifier>{510DA603-B903-43FB-BA7E-3100332BE139}</UniqueIdentifier>
+      <UniqueIdentifier>{69965F3F-0AD2-41C9-8888-E8AA4427AEEB}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\AiControllerParent.cpp">
       <Filter>Source\TamSkadLecaTracery</Filter>
@@ -81,6 +81,12 @@
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\TamSkadLecaTracery\HitBox.h">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TamSkadLecaTracery\MultiplayerWidgetParent.cpp">
+      <Filter>Source\TamSkadLecaTracery</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TamSkadLecaTracery\MultiplayerWidgetParent.h">
       <Filter>Source\TamSkadLecaTracery</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\PlayerStateParent.cpp">

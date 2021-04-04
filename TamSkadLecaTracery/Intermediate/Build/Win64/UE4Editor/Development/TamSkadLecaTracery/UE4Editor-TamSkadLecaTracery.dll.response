@@ -99,6 +99,8 @@
 "D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Development\Core\UE4Editor-Core.lib"
 "D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Development\CoreUObject\UE4Editor-CoreUObject.lib"
 "D:\unreal\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Development\InputCore\UE4Editor-InputCore.lib"
+"D:\unreal\UE_4.25\Engine\Plugins\Online\OnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\OnlineSubsystem\UE4Editor-OnlineSubsystem.lib"
+"D:\unreal\UE_4.25\Engine\Plugins\Online\OnlineSubsystemUtils\Intermediate\Build\Win64\UE4Editor\Development\OnlineSubsystemUtils\UE4Editor-OnlineSubsystemUtils.lib"
 /OUT:"D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Binaries\Win64\UE4Editor-TamSkadLecaTracery.dll"
 /IMPLIB:"D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Intermediate\Build\Win64\UE4Editor\Development\TamSkadLecaTracery\UE4Editor-TamSkadLecaTracery.suppressed.lib"
 /PDB:"D:\unreal\TamSkadLecaTracery\TamSkadLecaTracery\TamSkadLecaTracery\Binaries\Win64\UE4Editor-TamSkadLecaTracery.pdb"

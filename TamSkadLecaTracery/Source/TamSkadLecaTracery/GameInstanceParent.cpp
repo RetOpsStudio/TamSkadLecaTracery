@@ -85,6 +85,8 @@ void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! Succeeded: %d"), Succeeded));
 	if (Succeeded)
 	{
+		
+		SearchResult.Empty();//clear array before refilling
 		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! num: %d"), SessionSearch->SearchResults.Num()));
 		for (auto& Session : SessionSearch->SearchResults)
 		{
@@ -92,19 +94,31 @@ void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
 				FString::Printf(TEXT("Session Finding Completed! Succeeded: %s  %s"),
 					*(Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString()),
 					*(Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString())));
+
+		/*fill array of structs with info for BP use*/
+			SearchResult.Add(FSessionInfo({Session,
+				Session.PingInMs,
+				Session.Session.SessionSettings.NumPublicConnections,
+				Session.Session.NumOpenPublicConnections,
+				Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString(),
+				Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString()})
+				);
 		}
+		/*Event fired when games was successfully found. Used in blueprint*/
+		OnSearchFinished();
 	}
 }
 
-
-void UGameInstanceParent::JoinSession(int SessionIndex)
+/*Join Session by passing this session Id in current SessionSearch*/
+void UGameInstanceParent::JoinSession(const FSessionInfo &Session)
 {
-	if (SessionSearch->SearchResults[SessionIndex].IsValid())
-	{
-		SessionToJoin = SessionSearch->SearchResults[SessionIndex];
-		//SessionInterface->JoinSession();
-		SessionInterface->JoinSession(0, FName("My Session"), SessionToJoin);
-	}
+	
+	SessionInterface->JoinSession(0, FName("My Session"), Session.Session);
+	//if (SessionSearch->SearchResults[SessionIndex].IsValid())
+	//{
+	//	SessionToJoin = SessionSearch->SearchResults[SessionIndex];
+	//	//SessionInterface->JoinSession();
+	//}
 }
 /*delegate fired on JoinSession complete*/
 void UGameInstanceParent::OnJoinSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Result)

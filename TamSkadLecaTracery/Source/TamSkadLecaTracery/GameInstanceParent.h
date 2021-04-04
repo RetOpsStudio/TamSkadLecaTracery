@@ -18,12 +18,34 @@
 //forward declaration
 class USaveGameParent;
 
+USTRUCT(BlueprintType)
+struct FSessionInfo
+{
+	GENERATED_BODY()
+public:
+	FOnlineSessionSearchResult Session;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int Ping;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int MaxSlots;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int OpenSlots;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString MapName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString ServerName;
+	
+};
+
 
 UCLASS()
 class TAMSKADLECATRACERY_API UGameInstanceParent : public UGameInstance
 {
 	GENERATED_BODY()
 public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Network")
+	TArray<FSessionInfo> SearchResult;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveGame")
 	USaveGameParent* LoadedGame;
@@ -34,6 +56,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveGame")
 	FString SlotName = FString("DefaultSlotName");
 
+	/*event fired while JoinServer finish search*/
+	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "OnSearchGameComplete"))
+	void OnSearchFinished();
 protected:
 
 	//online session interface
@@ -44,6 +69,7 @@ protected:
 
 	//session marked from SessionSearch
 	FOnlineSessionSearchResult SessionToJoin;
+	
 
 	virtual void Init() override;
 
@@ -60,9 +86,7 @@ protected:
 	void JoinServer();
 
 	UFUNCTION(BlueprintCallable)
-	void JoinSession(int SessionIndex);
+	void JoinSession(const FSessionInfo &Session);
 
-	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "OnHit"))
-	void OnSearchFinished();
 
 };

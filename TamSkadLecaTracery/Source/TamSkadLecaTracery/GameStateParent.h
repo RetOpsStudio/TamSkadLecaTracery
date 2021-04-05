@@ -20,6 +20,5 @@ public:
 	TArray<APlayerState*> SortByScore(TArray<APlayerState* > ArrToSort);
 
 
-protected:
 	
 };

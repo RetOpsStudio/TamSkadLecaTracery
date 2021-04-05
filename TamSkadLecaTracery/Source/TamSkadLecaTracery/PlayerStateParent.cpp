@@ -10,3 +10,8 @@ void APlayerStateParent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& O
 	DOREPLIFETIME(APlayerStateParent, Kills);
 	DOREPLIFETIME(APlayerStateParent, Deaths);
 }
+
+void APlayerStateParent::SetPlayerName(const FString& PlayerName)
+{
+	Super::SetPlayerName(PlayerName);
+}

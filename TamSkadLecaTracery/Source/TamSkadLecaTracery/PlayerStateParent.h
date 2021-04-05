@@ -22,4 +22,7 @@ public:
 
 protected:
 	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const;
+
+	UFUNCTION(BlueprintCallable)
+	virtual void SetPlayerName(const FString& PlayerName) override;
 };

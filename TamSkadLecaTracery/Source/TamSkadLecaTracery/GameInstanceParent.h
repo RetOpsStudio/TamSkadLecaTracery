@@ -85,7 +85,6 @@ protected:
 	//function bound to delegate
 	virtual void OnJoinSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Result);
 
-
 	//function bound to delegate
 	virtual void OnDestroySessionComplete(FName Name, bool Succeeded);
 

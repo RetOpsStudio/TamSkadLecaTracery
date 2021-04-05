@@ -30,6 +30,7 @@ void UGameInstanceParent::Init()
 			SessionInterface->OnCreateSessionCompleteDelegates.AddUObject(this, &UGameInstanceParent::OnCreateSessionComplete);
 			SessionInterface->OnFindSessionsCompleteDelegates.AddUObject(this, &UGameInstanceParent::OnFindSessionComplete);
 			SessionInterface->OnJoinSessionCompleteDelegates.AddUObject(this, &UGameInstanceParent::OnJoinSessionComplete);
+			
 		}
 	}
 }
@@ -51,7 +52,7 @@ void UGameInstanceParent::CreateServer()
 	SessionSettings.Set(FName("SERVER_NAME"), FString("Fajny Server"), EOnlineDataAdvertisementType::ViaOnlineService);
 
 	//takes player ID, session name and session settings, Fires OnCreateSessionCompleteDelegates delegate when process is finished
-	SessionInterface->CreateSession(0, FName("My Session"), SessionSettings);
+	SessionInterface->CreateSession(0, GameSessionName, SessionSettings);
 }
 
 /*Function bound to delegate which is fired on CreateSession completion*/
@@ -66,7 +67,7 @@ void UGameInstanceParent::OnCreateSessionComplete(FName ServerName, bool Succeed
 }
 
 /*Starting Joining game process (can be done in BP)*/
-void UGameInstanceParent::JoinServer()
+void UGameInstanceParent::SearchServers()
 {
 	//Making SessionSearch variable to store search filters and search result
 	SessionSearch = MakeShareable(new FOnlineSessionSearch());
@@ -85,21 +86,22 @@ void UGameInstanceParent::JoinServer()
 /*Function bound to delegate which is fired on FindSession completion*/
 void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! Succeeded: %d"), Succeeded));
+	//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! Succeeded: %d"), Succeeded));
 	if (Succeeded)
 	{
 		
 		SearchResult.Empty();//clear array before refilling
 		if (SessionSearch.IsValid())
 		{
-
-			GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! num: %d"), SessionSearch->SearchResults.Num()));
+			//debug code
+			/*GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! num: %d"), SessionSearch->SearchResults.Num()));*/
 			for (auto& Session : SessionSearch->SearchResults)
 			{
-				GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green,
+				//debug code
+				/*GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green,
 					FString::Printf(TEXT("Session Finding Completed! Succeeded: %s  %s"),
 						*(Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString()),
-						*(Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString())));
+						*(Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString())));*/
 
 			/*fill array of structs with info for BP use*/
 				SearchResult.Add(FSessionInfo({Session,
@@ -120,12 +122,8 @@ void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
 void UGameInstanceParent::JoinSession(const FSessionInfo &Session)
 {
 	
-	SessionInterface->JoinSession(0, FName("My Session"), Session.Session);
-	//if (SessionSearch->SearchResults[SessionIndex].IsValid())
-	//{
-	//	SessionToJoin = SessionSearch->SearchResults[SessionIndex];
-	//	//SessionInterface->JoinSession();
-	//}
+	SessionInterface->JoinSession(0, GameSessionName, Session.Session);
+
 }
 /*delegate fired on JoinSession complete*/
 void UGameInstanceParent::OnJoinSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Result)
@@ -134,8 +132,19 @@ void UGameInstanceParent::OnJoinSessionComplete(FName Name, EOnJoinSessionComple
 	if (Result == EOnJoinSessionCompleteResult::Success)
 	{
 		FString URL;
-		SessionInterface->GetResolvedConnectString(FName("My Session"), URL);
-		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Joing Session %s Complete: %d"), *URL, Result));
+		SessionInterface->GetResolvedConnectString(GameSessionName, URL);
+		//debug code
+		/*GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Joing Session %s Complete: %d"), *URL, Result));*/
 		GetWorld()->GetFirstPlayerController()->ClientTravel(URL, ETravelType::TRAVEL_Absolute);
 	}
+}
+
+
+void UGameInstanceParent::DestroySession()
+{
+	//SessionInterface->DestroySession(GameSessionName, &UGameInstanceParent::OnDestroySessionComplete);
+}
+
+void UGameInstanceParent::OnDestroySessionComplete(FName Name, bool Succeeded)
+{
 }

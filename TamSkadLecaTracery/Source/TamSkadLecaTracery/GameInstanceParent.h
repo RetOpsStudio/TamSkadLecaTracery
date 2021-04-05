@@ -73,20 +73,30 @@ protected:
 
 	virtual void Init() override;
 
+	//function bound to delegate
 	virtual void OnCreateSessionComplete(FName ServerName, bool Succeeded);
 
+	//function bound to delegate
 	virtual void OnFindSessionComplete(bool Succeeded);
 
+	//function bound to delegate
 	virtual void OnJoinSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Result);
+
+
+	//function bound to delegate
+	virtual void OnDestroySessionComplete(FName Name, bool Succeeded);
 
 	UFUNCTION(BlueprintCallable)
 	void CreateServer();
 
 	UFUNCTION(BlueprintCallable)
-	void JoinServer();
+	void SearchServers();
 
 	UFUNCTION(BlueprintCallable)
 	void JoinSession(const FSessionInfo &Session);
+
+	UFUNCTION(BlueprintCallable)
+	void DestroySession();
 
 
 };

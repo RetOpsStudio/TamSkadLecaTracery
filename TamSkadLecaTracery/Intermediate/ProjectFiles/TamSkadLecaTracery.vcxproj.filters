@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TamSkadLecaTracery.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{27645BD8-F8FA-484D-8A14-77624E7EB89F}</UniqueIdentifier>
+      <UniqueIdentifier>{CD874382-D42A-4480-B35F-DD6B01F2303C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TamSkadLecaTracery.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{BBD59A9D-0A87-4E94-8F65-097D01DA090B}</UniqueIdentifier>
+      <UniqueIdentifier>{08ACBABB-F8CA-40C6-B437-300198312011}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TamSkadLecaTracery">
-      <UniqueIdentifier>{69965F3F-0AD2-41C9-8888-E8AA4427AEEB}</UniqueIdentifier>
+      <UniqueIdentifier>{60EB2FA8-1D70-4B44-A40D-CEE1728A1B5A}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TamSkadLecaTracery\AiControllerParent.cpp">
       <Filter>Source\TamSkadLecaTracery</Filter>

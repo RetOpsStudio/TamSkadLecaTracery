@@ -30,13 +30,14 @@ void UGameInstanceParent::Init()
 			SessionInterface->OnCreateSessionCompleteDelegates.AddUObject(this, &UGameInstanceParent::OnCreateSessionComplete);
 			SessionInterface->OnFindSessionsCompleteDelegates.AddUObject(this, &UGameInstanceParent::OnFindSessionComplete);
 			SessionInterface->OnJoinSessionCompleteDelegates.AddUObject(this, &UGameInstanceParent::OnJoinSessionComplete);
+			SessionInterface->OnDestroySessionCompleteDelegates.AddUObject(this, &UGameInstanceParent::OnDestroySessionComplete);
 			
 		}
 	}
 }
 
 /*Starting CreateServer process (can be done in BP)*/
-void UGameInstanceParent::CreateServer()
+void UGameInstanceParent::CreateServer(FString ServerName, FString MapName)
 {
 
 	//Create and fill Session Settings values
@@ -48,8 +49,8 @@ void UGameInstanceParent::CreateServer()
 	SessionSettings.bUsesPresence = true;
 	SessionSettings.NumPublicConnections = 10;
 
-	SessionSettings.Set(SETTING_MAPNAME, FString("MAPA"), EOnlineDataAdvertisementType::ViaOnlineService);
-	SessionSettings.Set(FName("SERVER_NAME"), FString("Fajny Server"), EOnlineDataAdvertisementType::ViaOnlineService);
+	SessionSettings.Set(SETTING_MAPNAME, MapName, EOnlineDataAdvertisementType::ViaOnlineService);
+	SessionSettings.Set(FName("SERVER_NAME"), ServerName, EOnlineDataAdvertisementType::ViaOnlineService);
 
 	//takes player ID, session name and session settings, Fires OnCreateSessionCompleteDelegates delegate when process is finished
 	SessionInterface->CreateSession(0, GameSessionName, SessionSettings);
@@ -58,11 +59,14 @@ void UGameInstanceParent::CreateServer()
 /*Function bound to delegate which is fired on CreateSession completion*/
 void UGameInstanceParent::OnCreateSessionComplete(FName ServerName, bool Succeeded)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("Session Creation Completed! Succeeded: %d")), Succeeded);
+	//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("Session Creation Completed! Succeeded: %d")), Succeeded);
 	if (Succeeded)
 	{
+		FString MapName = SessionInterface->GetSessionSettings(GameSessionName)->Settings.Find(SETTING_MAPNAME)->Data.ToString();
 		//if Create Session has succeeded, open new map with option listen
-		GetWorld()->ServerTravel("/Game/MapsAndGameModes/Standard/MP_TestLevel.MP_TestLevel?listen",true);
+		UGameplayStatics::OpenLevel(GetWorld(), FName(MapName), true, "listen");
+
+		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("Session Creation Completed! Succeeded: %s"), *MapName));
 	}
 }
 
@@ -108,13 +112,13 @@ void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
 					Session.PingInMs,
 					Session.Session.SessionSettings.NumPublicConnections,
 					Session.Session.NumOpenPublicConnections,
-					Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString(),
-					Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString()})
+					Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->Data.ToString(),
+					Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->Data.ToString()})
 					);
 			}
 		}
 		/*Event fired when games was successfully found. Used in blueprint*/
-		OnSearchFinished();
+		OnSearchSessionsFinishedEvent();
 	}
 }
 
@@ -142,9 +146,12 @@ void UGameInstanceParent::OnJoinSessionComplete(FName Name, EOnJoinSessionComple
 
 void UGameInstanceParent::DestroySession()
 {
-	//SessionInterface->DestroySession(GameSessionName, &UGameInstanceParent::OnDestroySessionComplete);
+	SessionInterface->DestroySession(GameSessionName);
 }
 
 void UGameInstanceParent::OnDestroySessionComplete(FName Name, bool Succeeded)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Destroing Session %s Complete: %d"), *Name.ToString(), Succeeded));
+	UGameplayStatics::OpenLevel(GetWorld(), "MP.MainMenu", true);
+	OnDestroySessionCompleteEvent();
 }

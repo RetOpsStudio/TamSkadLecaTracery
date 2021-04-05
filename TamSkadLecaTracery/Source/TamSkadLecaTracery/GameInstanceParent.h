@@ -57,8 +57,11 @@ public:
 	FString SlotName = FString("DefaultSlotName");
 
 	/*event fired while JoinServer finish search*/
-	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "OnSearchGameComplete"))
-	void OnSearchFinished();
+	UFUNCTION(BlueprintImplementableEvent, Category = "Sessions", meta = (DisplayName = "OnSearchSessionsComplete"))
+	void OnSearchSessionsFinishedEvent();
+
+	UFUNCTION(BlueprintImplementableEvent, Category ="Sessions", meta = (DisplayName = "OnDestroySessionComplete"))
+	void OnDestroySessionCompleteEvent();
 protected:
 
 	//online session interface
@@ -87,7 +90,7 @@ protected:
 	virtual void OnDestroySessionComplete(FName Name, bool Succeeded);
 
 	UFUNCTION(BlueprintCallable)
-	void CreateServer();
+	void CreateServer(FString ServerName, FString MapName);
 
 	UFUNCTION(BlueprintCallable)
 	void SearchServers();

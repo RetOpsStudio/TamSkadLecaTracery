@@ -59,14 +59,12 @@ void UGameInstanceParent::CreateServer(FString ServerName, FString MapName)
 /*Function bound to delegate which is fired on CreateSession completion*/
 void UGameInstanceParent::OnCreateSessionComplete(FName ServerName, bool Succeeded)
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("Session Creation Completed! Succeeded: %d")), Succeeded);
 	if (Succeeded)
 	{
 		FString MapName = SessionInterface->GetSessionSettings(GameSessionName)->Settings.Find(SETTING_MAPNAME)->Data.ToString();
+
 		//if Create Session has succeeded, open new map with option listen
 		UGameplayStatics::OpenLevel(GetWorld(), FName(MapName), true, "listen");
-
-		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("Session Creation Completed! Succeeded: %s"), *MapName));
 	}
 }
 
@@ -90,23 +88,16 @@ void UGameInstanceParent::SearchServers()
 /*Function bound to delegate which is fired on FindSession completion*/
 void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
 {
-	//GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! Succeeded: %d"), Succeeded));
 	if (Succeeded)
-	{
-		
+	{	
 		SearchResult.Empty();//clear array before refilling
 		if (SessionSearch.IsValid())
 		{
 			//debug code
-			/*GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! num: %d"), SessionSearch->SearchResults.Num()));*/
+			
 			for (auto& Session : SessionSearch->SearchResults)
 			{
-				//debug code
-				/*GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green,
-					FString::Printf(TEXT("Session Finding Completed! Succeeded: %s  %s"),
-						*(Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString()),
-						*(Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString())));*/
-
+			
 			/*fill array of structs with info for BP use*/
 				SearchResult.Add(FSessionInfo({Session,
 					Session.PingInMs,
@@ -124,34 +115,38 @@ void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
 
 /*Join Session by passing this session Id in current SessionSearch*/
 void UGameInstanceParent::JoinSession(const FSessionInfo &Session)
-{
-	
+{	
 	SessionInterface->JoinSession(0, GameSessionName, Session.Session);
-
 }
 /*delegate fired on JoinSession complete*/
 void UGameInstanceParent::OnJoinSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Result)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Joing Session %s Complete: %d"), *Name.ToString(), Result));
 	if (Result == EOnJoinSessionCompleteResult::Success)
 	{
 		FString URL;
+
 		SessionInterface->GetResolvedConnectString(GameSessionName, URL);
-		//debug code
-		/*GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Joing Session %s Complete: %d"), *URL, Result));*/
+
 		GetWorld()->GetFirstPlayerController()->ClientTravel(URL, ETravelType::TRAVEL_Absolute);
 	}
 }
 
-
+/*DestroySession*/
 void UGameInstanceParent::DestroySession()
 {
 	SessionInterface->DestroySession(GameSessionName);
 }
 
+/*delegate fired on DestroySession complete*/
 void UGameInstanceParent::OnDestroySessionComplete(FName Name, bool Succeeded)
 {
 	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Destroing Session %s Complete: %d"), *Name.ToString(), Succeeded));
 	UGameplayStatics::OpenLevel(GetWorld(), "MP.MainMenu", true);
+
+	/*Event fired when games was successfully destroyed. Used in blueprint*/
 	OnDestroySessionCompleteEvent();
 }
+
+
+//debug code
+/*GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Joing Session %s Complete: %d"), *URL, Result));*/

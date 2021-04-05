@@ -90,10 +90,10 @@ protected:
 	virtual void OnDestroySessionComplete(FName Name, bool Succeeded);
 
 	UFUNCTION(BlueprintCallable)
-	void CreateServer(FString ServerName, FString MapName);
+	void CreateServer(FString ServerName, FString MapName, int SlotNumber = 10, bool IsLan = true);
 
 	UFUNCTION(BlueprintCallable)
-	void SearchServers();
+	void SearchServers(bool IsLan = true);
 
 	UFUNCTION(BlueprintCallable)
 	void JoinSession(const FSessionInfo &Session);

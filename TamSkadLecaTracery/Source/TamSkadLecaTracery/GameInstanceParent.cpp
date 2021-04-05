@@ -37,17 +37,18 @@ void UGameInstanceParent::Init()
 }
 
 /*Starting CreateServer process (can be done in BP)*/
-void UGameInstanceParent::CreateServer(FString ServerName, FString MapName)
+void UGameInstanceParent::CreateServer(FString ServerName, FString MapName, int SlotNumber, bool IsLan)
 {
 
 	//Create and fill Session Settings values
 	FOnlineSessionSettings SessionSettings;
 	SessionSettings.bAllowJoinInProgress = true;
 	SessionSettings.bIsDedicated = false;
-	SessionSettings.bIsLANMatch = true;
+	SessionSettings.bIsLANMatch = IsLan;
 	SessionSettings.bShouldAdvertise = true;
 	SessionSettings.bUsesPresence = true;
-	SessionSettings.NumPublicConnections = 10;
+
+	SessionSettings.NumPublicConnections = (SlotNumber > 0 ? SlotNumber : 10);
 
 	SessionSettings.Set(SETTING_MAPNAME, MapName, EOnlineDataAdvertisementType::ViaOnlineService);
 	SessionSettings.Set(FName("SERVER_NAME"), ServerName, EOnlineDataAdvertisementType::ViaOnlineService);
@@ -69,13 +70,13 @@ void UGameInstanceParent::OnCreateSessionComplete(FName ServerName, bool Succeed
 }
 
 /*Starting Joining game process (can be done in BP)*/
-void UGameInstanceParent::SearchServers()
+void UGameInstanceParent::SearchServers(bool IsLan )
 {
 	//Making SessionSearch variable to store search filters and search result
 	SessionSearch = MakeShareable(new FOnlineSessionSearch());
 	if (SessionSearch.IsValid())
 	{
-		SessionSearch->bIsLanQuery = true;
+		SessionSearch->bIsLanQuery = IsLan;
 		SessionSearch->MaxSearchResults = 10000;
 		SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
 

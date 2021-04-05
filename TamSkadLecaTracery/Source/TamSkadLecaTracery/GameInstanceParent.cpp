@@ -70,14 +70,17 @@ void UGameInstanceParent::JoinServer()
 {
 	//Making SessionSearch variable to store search filters and search result
 	SessionSearch = MakeShareable(new FOnlineSessionSearch());
-	SessionSearch->bIsLanQuery = true;
-	SessionSearch->MaxSearchResults = 10000;
-	SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
+	if (SessionSearch.IsValid())
+	{
+		SessionSearch->bIsLanQuery = true;
+		SessionSearch->MaxSearchResults = 10000;
+		SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
 
-	/*Find session gets player ID and SessionSearch reference.
-	Filling SessionSearch reference with Searching results.
-	Fires OnFindSessionsCompleteDelegates on complete */
-	SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
+		/*Find session gets player ID and SessionSearch reference.
+		Filling SessionSearch reference with Searching results.
+		Fires OnFindSessionsCompleteDelegates on complete */
+		SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
+	}
 }
 /*Function bound to delegate which is fired on FindSession completion*/
 void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
@@ -87,22 +90,26 @@ void UGameInstanceParent::OnFindSessionComplete(bool Succeeded)
 	{
 		
 		SearchResult.Empty();//clear array before refilling
-		GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! num: %d"), SessionSearch->SearchResults.Num()));
-		for (auto& Session : SessionSearch->SearchResults)
+		if (SessionSearch.IsValid())
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green,
-				FString::Printf(TEXT("Session Finding Completed! Succeeded: %s  %s"),
-					*(Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString()),
-					*(Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString())));
 
-		/*fill array of structs with info for BP use*/
-			SearchResult.Add(FSessionInfo({Session,
-				Session.PingInMs,
-				Session.Session.SessionSettings.NumPublicConnections,
-				Session.Session.NumOpenPublicConnections,
-				Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString(),
-				Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString()})
-				);
+			GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Session Finding Completed! num: %d"), SessionSearch->SearchResults.Num()));
+			for (auto& Session : SessionSearch->SearchResults)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green,
+					FString::Printf(TEXT("Session Finding Completed! Succeeded: %s  %s"),
+						*(Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString()),
+						*(Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString())));
+
+			/*fill array of structs with info for BP use*/
+				SearchResult.Add(FSessionInfo({Session,
+					Session.PingInMs,
+					Session.Session.SessionSettings.NumPublicConnections,
+					Session.Session.NumOpenPublicConnections,
+					Session.Session.SessionSettings.Settings.Find(SETTING_MAPNAME)->ToString(),
+					Session.Session.SessionSettings.Settings.Find(FName("SERVER_NAME"))->ToString()})
+					);
+			}
 		}
 		/*Event fired when games was successfully found. Used in blueprint*/
 		OnSearchFinished();

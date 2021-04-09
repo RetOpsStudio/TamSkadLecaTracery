@@ -90,7 +90,7 @@ void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifeti
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME_CONDITION(ADefaultCH, RotationY, COND_SimulatedOnly);
-	DOREPLIFETIME(ADefaultCH, States);
+	DOREPLIFETIME_CONDITION(ADefaultCH, States, COND_SkipOwner);
 }
 
 

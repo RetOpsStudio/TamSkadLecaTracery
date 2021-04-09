@@ -57,6 +57,7 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 
 			Bullet->SetLifeSpan(BulletLifeTime);
 			Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
+			InMagAmmo--;
 		}
 
 	}

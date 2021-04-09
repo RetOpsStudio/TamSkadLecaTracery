@@ -15,7 +15,14 @@ AGunParentV2::AGunParentV2()
 
 
 }
-void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo,  int32 PlayerControlerID, AActor* ControllerRef)
+
+void AGunParentV2::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+}
+
+/*Fires weapon*/ //TODO remove PlayerControllerID & ControllerRef as it is useless in multiplayer
+void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo,  int32 PlayerControlerID, AActor* ControllerRef, APawn* NewInstigator)
 {
 	if (!ensure(BulletClass))
 	{
@@ -31,10 +38,11 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 		// spawn bullet in server
 		if (HasAuthority())
 		{
-			auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass,BulletSpawnTransform);   ///spawning bullet from template
+			auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass, BulletSpawnTransform);   //spawning bullet from template
 
 			if (!Bullet) { return; }
 
+			Bullet->SetInstigator(NewInstigator);
 			Bullet->PawnControllerRef = ControllerRef;
 			Bullet->PlayerControllerID = PlayerControlerID;
 			Bullet->SetLifeSpan(BulletLifeTime);
@@ -46,24 +54,14 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 	
 }
 
+/*called when you want to reload weapon*/
 void AGunParentV2::Reload()
 {
 	FTimerHandle TimerHandle;
 	GetWorldTimerManager().SetTimer(TimerHandle,this, &AGunParentV2::FillMagFromAmmoLeft, ReloadTime, false);
 }
 
-
-FString AGunParentV2::GetAmmoLeft() const
-{
-	
-	return FString::FromInt(InMagAmmo) + FString("/") + FString::FromInt(CarryOnAmmo);
-}
-
-void AGunParentV2::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-}
-
+/*ending process of reloading weapon, fills weapon magazine, and removing this ammo form CarryOnAmmo*/
 void AGunParentV2::FillMagFromAmmoLeft()
 {
 	if (!ensure(MagazineSize >= 0)) 
@@ -80,6 +78,15 @@ void AGunParentV2::FillMagFromAmmoLeft()
 	}
 	//UE_LOG(LogTemp, Warning, TEXT("Xd"));
 }
+
+/*gets ammo left as string*/
+FString AGunParentV2::GetAmmoLeft() const
+{
+	
+	return FString::FromInt(InMagAmmo) + FString("/") + FString::FromInt(CarryOnAmmo);
+}
+
+
 
 // networking
 void AGunParentV2::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

@@ -30,11 +30,11 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 	}
 	if (InMagAmmo > 0)
 	{
-		// spawn muzzle flash
-		if (MuzzleFlash && AttachTo)
-		{
-			UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, AttachTo, FName("Bullet"));  //spawning particle from template
-		}
+		//// spawn muzzle flash
+		//if (MuzzleFlash && AttachTo)
+		//{
+		//	UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, AttachTo, FName("Bullet"));  //spawning particle from template
+		//}
 		// spawn bullet in server
 		if (HasAuthority())
 		{

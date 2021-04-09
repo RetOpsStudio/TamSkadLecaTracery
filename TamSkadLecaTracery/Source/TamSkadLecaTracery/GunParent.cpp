@@ -47,9 +47,18 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 			Bullet->PlayerControllerID = PlayerControlerID;
 			Bullet->SetLifeSpan(BulletLifeTime);
 			Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
-		
 			InMagAmmo--;
 		}
+		else //if local copy
+		{
+			auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass, BulletSpawnTransform);   //spawning bullet from template
+
+			if (!Bullet) { return; }
+
+			Bullet->SetLifeSpan(BulletLifeTime);
+			Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
+		}
+
 	}
 	
 }

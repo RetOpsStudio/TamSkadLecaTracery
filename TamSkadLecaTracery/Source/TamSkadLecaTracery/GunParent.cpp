@@ -21,8 +21,8 @@ void AGunParentV2::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-/*Fires weapon*/ //TODO remove PlayerControllerID & ControllerRef as it is useless in multiplayer
-void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* MuzzleFlash, USceneComponent* AttachTo,  int32 PlayerControlerID, AActor* ControllerRef, APawn* NewInstigator)
+/*Fires weapon*/ //Controllerref is now get from instigator TODO remove PlayerControllerID & ControllerRef as it is useless in multiplayer
+void AGunParentV2::Fire(FTransform BulletSpawnTransform, USceneComponent* AttachTo, APawn* NewInstigator)
 {
 	if (!ensure(BulletClass))
 	{
@@ -30,12 +30,7 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 	}
 	if (InMagAmmo > 0)
 	{
-		//// spawn muzzle flash
-		//if (MuzzleFlash && AttachTo)
-		//{
-		//	UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, AttachTo, FName("Bullet"));  //spawning particle from template
-		//}
-		// spawn bullet in server
+		
 		if (HasAuthority())
 		{
 			auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass, BulletSpawnTransform);   //spawning bullet from template
@@ -43,8 +38,6 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, UParticleSystem* Muzzle
 			if (!Bullet) { return; }
 
 			Bullet->SetInstigator(NewInstigator);
-			Bullet->PawnControllerRef = ControllerRef;
-			Bullet->PlayerControllerID = PlayerControlerID;
 			Bullet->SetLifeSpan(BulletLifeTime);
 			Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
 			InMagAmmo--;

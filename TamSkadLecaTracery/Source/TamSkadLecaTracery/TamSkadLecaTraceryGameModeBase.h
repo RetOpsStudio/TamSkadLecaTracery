@@ -53,10 +53,10 @@ protected:
 	int RedTeamScore;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
-	int GreenTeamID;
+	int GreenTeamID = 0;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
-	int RedTeamID;
+	int RedTeamID = 1;
 
 	UPROPERTY(BlueprintAssignable, Category = "Score")
 	FOnEndGameWithResultDelegate OnEndGameWithResultDelegate;

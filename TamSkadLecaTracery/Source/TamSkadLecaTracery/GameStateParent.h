@@ -15,10 +15,24 @@ class TAMSKADLECATRACERY_API AGameStateParent : public AGameState
 {
 	GENERATED_BODY()
 public:
-	//sort player array by player score
+
+	/*sort player array by player score */
 	UFUNCTION(BlueprintCallable, Category = "Utility")
 	TArray<APlayerState*> SortByScore(TArray<APlayerState* > ArrToSort);
 
+protected:
+	//TODO Make score replicated
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
+	int GreenTeamScore;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
+	int RedTeamScore;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
+	int GreenTeamID = 0;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
+	int RedTeamID = 1;
 
 	
 };

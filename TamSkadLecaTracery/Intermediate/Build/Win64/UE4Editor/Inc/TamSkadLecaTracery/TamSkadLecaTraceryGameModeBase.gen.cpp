@@ -15,7 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 // Cross Module References
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_NoRegister();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase();
-	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
+	ENGINE_API UClass* Z_Construct_UClass_AGameMode();
 	UPackage* Z_Construct_UPackage__Script_TamSkadLecaTracery();
 // End Cross Module References
 	void ATamSkadLecaTraceryGameModeBase::StaticRegisterNativesATamSkadLecaTraceryGameModeBase()
@@ -35,7 +35,7 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_AGameModeBase,
+		(UObject* (*)())Z_Construct_UClass_AGameMode,
 		(UObject* (*)())Z_Construct_UPackage__Script_TamSkadLecaTracery,
 	};
 #if WITH_METADATA
@@ -74,7 +74,7 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATamSkadLecaTraceryGameModeBase, 3835811293);
+	IMPLEMENT_CLASS(ATamSkadLecaTraceryGameModeBase, 375443722);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ATamSkadLecaTraceryGameModeBase>()
 	{
 		return ATamSkadLecaTraceryGameModeBase::StaticClass();

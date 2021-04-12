@@ -21,7 +21,7 @@ private: \
 	static void StaticRegisterNativesATamSkadLecaTraceryGameModeBase(); \
 	friend struct Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics; \
 public: \
-	DECLARE_CLASS(ATamSkadLecaTraceryGameModeBase, AGameModeBase, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/TamSkadLecaTracery"), NO_API) \
+	DECLARE_CLASS(ATamSkadLecaTraceryGameModeBase, AGameMode, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/TamSkadLecaTracery"), NO_API) \
 	DECLARE_SERIALIZER(ATamSkadLecaTraceryGameModeBase)
 
 
@@ -30,7 +30,7 @@ private: \
 	static void StaticRegisterNativesATamSkadLecaTraceryGameModeBase(); \
 	friend struct Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics; \
 public: \
-	DECLARE_CLASS(ATamSkadLecaTraceryGameModeBase, AGameModeBase, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/TamSkadLecaTracery"), NO_API) \
+	DECLARE_CLASS(ATamSkadLecaTraceryGameModeBase, AGameMode, COMPILED_IN_FLAGS(0 | CLASS_Transient | CLASS_Config), CASTCLASS_None, TEXT("/Script/TamSkadLecaTracery"), NO_API) \
 	DECLARE_SERIALIZER(ATamSkadLecaTraceryGameModeBase)
 
 

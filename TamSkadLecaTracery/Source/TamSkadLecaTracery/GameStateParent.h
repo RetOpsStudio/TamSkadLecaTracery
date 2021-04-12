@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameStateBase.h"
+#include "GameFramework/GameState.h"
 #include "GameStateParent.generated.h"
 
 
@@ -11,7 +11,7 @@
  * 
  */
 UCLASS()
-class TAMSKADLECATRACERY_API AGameStateParent : public AGameStateBase
+class TAMSKADLECATRACERY_API AGameStateParent : public AGameState
 {
 	GENERATED_BODY()
 public:

@@ -11,18 +11,24 @@
 #endif
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTracery_init() {}
+	TAMSKADLECATRACERY_API UFunction* Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature();
+	TAMSKADLECATRACERY_API UFunction* Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_TamSkadLecaTracery()
 	{
 		static UPackage* ReturnPackage = nullptr;
 		if (!ReturnPackage)
 		{
+			static UObject* (*const SingletonFuncArray[])() = {
+				(UObject* (*)())Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature,
+			};
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/TamSkadLecaTracery",
-				nullptr,
-				0,
+				SingletonFuncArray,
+				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x10833CC0,
-				0x09B96EED,
+				0x978DDD8A,
+				0x69515531,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

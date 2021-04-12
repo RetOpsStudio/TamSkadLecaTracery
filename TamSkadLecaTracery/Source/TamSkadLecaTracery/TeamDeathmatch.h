@@ -13,5 +13,11 @@ UCLASS()
 class TAMSKADLECATRACERY_API ATeamDeathmatch : public ATamSkadLecaTraceryGameModeBase
 {
 	GENERATED_BODY()
-	
+public:
+
+
+	UFUNCTION(BlueprintCallable)
+	virtual int EndGameWithResult() override;
+
+
 };

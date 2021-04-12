@@ -13,9 +13,49 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define TAMSKADLECATRACERY_TamSkadLecaTraceryGameModeBase_generated_h
 
+#define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_43_DELEGATE \
+struct TamSkadLecaTraceryGameModeBase_eventOnAddTeamScoreDelegate_Parms \
+{ \
+	int32 TeamID; \
+}; \
+static inline void FOnAddTeamScoreDelegate_DelegateWrapper(const FMulticastScriptDelegate& OnAddTeamScoreDelegate, int32 TeamID) \
+{ \
+	TamSkadLecaTraceryGameModeBase_eventOnAddTeamScoreDelegate_Parms Parms; \
+	Parms.TeamID=TeamID; \
+	OnAddTeamScoreDelegate.ProcessMulticastDelegate<UObject>(&Parms); \
+}
+
+
+#define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_37_DELEGATE \
+struct TamSkadLecaTraceryGameModeBase_eventOnEndGameWithResultDelegate_Parms \
+{ \
+	int32 TeamID; \
+}; \
+static inline void FOnEndGameWithResultDelegate_DelegateWrapper(const FMulticastScriptDelegate& OnEndGameWithResultDelegate, int32 TeamID) \
+{ \
+	TamSkadLecaTraceryGameModeBase_eventOnEndGameWithResultDelegate_Parms Parms; \
+	Parms.TeamID=TeamID; \
+	OnEndGameWithResultDelegate.ProcessMulticastDelegate<UObject>(&Parms); \
+}
+
+
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_SPARSE_DATA
-#define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_RPC_WRAPPERS
-#define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execAddRedTeamScore); \
+	DECLARE_FUNCTION(execAddGreenTeamScore); \
+	DECLARE_FUNCTION(execGetRedTeamScore); \
+	DECLARE_FUNCTION(execGetGreenTeamScore);
+
+
+#define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execAddRedTeamScore); \
+	DECLARE_FUNCTION(execAddGreenTeamScore); \
+	DECLARE_FUNCTION(execGetRedTeamScore); \
+	DECLARE_FUNCTION(execGetGreenTeamScore);
+
+
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATamSkadLecaTraceryGameModeBase(); \
@@ -60,7 +100,15 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATamSkadLecaTraceryGameModeBase); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ATamSkadLecaTraceryGameModeBase)
 
 
-#define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET
+#define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__GreenTeamScore() { return STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, GreenTeamScore); } \
+	FORCEINLINE static uint32 __PPO__RedTeamScore() { return STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, RedTeamScore); } \
+	FORCEINLINE static uint32 __PPO__GreenTeamID() { return STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, GreenTeamID); } \
+	FORCEINLINE static uint32 __PPO__RedTeamID() { return STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, RedTeamID); } \
+	FORCEINLINE static uint32 __PPO__OnEndGameWithResultDelegate() { return STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, OnEndGameWithResultDelegate); } \
+	FORCEINLINE static uint32 __PPO__OnAddTeamScoreDelegate() { return STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, OnAddTeamScoreDelegate); }
+
+
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_12_PROLOG
 #define TamSkadLecaTracery_Source_TamSkadLecaTracery_TamSkadLecaTraceryGameModeBase_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

@@ -3,3 +3,9 @@
 
 #include "TeamDeathmatch.h"
 
+int ATeamDeathmatch::EndGameWithResult()
+{
+	int WinningTeam = GetGreenTeamScore() > GetRedTeamScore() ? GreenTeamID : RedTeamID;
+	OnEndGameWithResultDelegate.Broadcast(WinningTeam);
+	return WinningTeam;
+}

@@ -9,6 +9,13 @@
 /**
  * 
  */
+UENUM(BlueprintType)
+enum class E_TeamID : uint8
+{
+	GreenTeamID		UMETA(DisplayName = "GreenTeamID"),
+	RedTeamID       UMETA(DisplayName = "RedTeamID"),
+	None	        UMETA(DisplayName = "None")
+};
 UCLASS()
 class TAMSKADLECATRACERY_API ATamSkadLecaTraceryGameModeBase : public AGameMode
 {
@@ -34,16 +41,16 @@ public:
 	*  @TeamID id of team who have won (casted to int from FGenericTeamID)
 	*	delegate fired on end game with result
 	*/
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndGameWithResultDelegate, int, TeamID);
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEndGameWithResultDelegate, E_TeamID, TeamID);
 
 	/*
 	*  @TeamID id of team whos score has changed (casted to int from FGenericTeamID)
 	*	delegate fired on end game with result
 	*/
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAddTeamScoreDelegate, int, TeamID);
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAddTeamScoreDelegate, E_TeamID, TeamID);
 
 	/*ends game and returns winning team id*/
-	virtual int EndGameWithResult() { return 0; };
+	virtual E_TeamID EndGameWithResult() { return E_TeamID::None; };
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
@@ -51,12 +58,6 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
 	int RedTeamScore;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
-	int GreenTeamID = 0;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
-	int RedTeamID = 1;
 
 	UPROPERTY(BlueprintAssignable, Category = "Score")
 	FOnEndGameWithResultDelegate OnEndGameWithResultDelegate;

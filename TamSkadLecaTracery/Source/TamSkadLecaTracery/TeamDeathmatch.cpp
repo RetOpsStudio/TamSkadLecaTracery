@@ -3,9 +3,9 @@
 
 #include "TeamDeathmatch.h"
 
-int ATeamDeathmatch::EndGameWithResult()
+E_TeamID ATeamDeathmatch::EndGameWithResult()
 {
-	int WinningTeam = GetGreenTeamScore() > GetRedTeamScore() ? GreenTeamID : RedTeamID;
+	E_TeamID WinningTeam = GetGreenTeamScore() > GetRedTeamScore() ? E_TeamID::GreenTeamID : E_TeamID::RedTeamID;
 	OnEndGameWithResultDelegate.Broadcast(WinningTeam);
 	return WinningTeam;
 }

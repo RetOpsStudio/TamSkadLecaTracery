@@ -15,27 +15,31 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 // Cross Module References
 	TAMSKADLECATRACERY_API UFunction* Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase();
+	TAMSKADLECATRACERY_API UEnum* Z_Construct_UEnum_TamSkadLecaTracery_E_TeamID();
 	TAMSKADLECATRACERY_API UFunction* Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature();
+	UPackage* Z_Construct_UPackage__Script_TamSkadLecaTracery();
 	TAMSKADLECATRACERY_API UClass* Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AGameMode();
-	UPackage* Z_Construct_UPackage__Script_TamSkadLecaTracery();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature_Statics
 	{
 		struct TamSkadLecaTraceryGameModeBase_eventOnAddTeamScoreDelegate_Parms
 		{
-			int32 TeamID;
+			E_TeamID TeamID;
 		};
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_TeamID;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_TeamID;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_TeamID_Underlying;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature_Statics::NewProp_TeamID = { "TeamID", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(TamSkadLecaTraceryGameModeBase_eventOnAddTeamScoreDelegate_Parms, TeamID), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature_Statics::NewProp_TeamID = { "TeamID", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(TamSkadLecaTraceryGameModeBase_eventOnAddTeamScoreDelegate_Parms, TeamID), Z_Construct_UEnum_TamSkadLecaTracery_E_TeamID, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature_Statics::NewProp_TeamID_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature_Statics::NewProp_TeamID,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature_Statics::NewProp_TeamID_Underlying,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature_Statics::Function_MetaDataParams[] = {
@@ -58,18 +62,21 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 	{
 		struct TamSkadLecaTraceryGameModeBase_eventOnEndGameWithResultDelegate_Parms
 		{
-			int32 TeamID;
+			E_TeamID TeamID;
 		};
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_TeamID;
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_TeamID;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_TeamID_Underlying;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature_Statics::NewProp_TeamID = { "TeamID", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(TamSkadLecaTraceryGameModeBase_eventOnEndGameWithResultDelegate_Parms, TeamID), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature_Statics::NewProp_TeamID = { "TeamID", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(TamSkadLecaTraceryGameModeBase_eventOnEndGameWithResultDelegate_Parms, TeamID), Z_Construct_UEnum_TamSkadLecaTracery_E_TeamID, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature_Statics::NewProp_TeamID_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature_Statics::NewProp_TeamID,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature_Statics::NewProp_TeamID_Underlying,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature_Statics::Function_MetaDataParams[] = {
@@ -87,6 +94,68 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature_Statics::FuncParams);
 		}
 		return ReturnFunction;
+	}
+	static UEnum* E_TeamID_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_TamSkadLecaTracery_E_TeamID, Z_Construct_UPackage__Script_TamSkadLecaTracery(), TEXT("E_TeamID"));
+		}
+		return Singleton;
+	}
+	template<> TAMSKADLECATRACERY_API UEnum* StaticEnum<E_TeamID>()
+	{
+		return E_TeamID_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_E_TeamID(E_TeamID_StaticEnum, TEXT("/Script/TamSkadLecaTracery"), TEXT("E_TeamID"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_TamSkadLecaTracery_E_TeamID_Hash() { return 2425554476U; }
+	UEnum* Z_Construct_UEnum_TamSkadLecaTracery_E_TeamID()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_TamSkadLecaTracery();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("E_TeamID"), 0, Get_Z_Construct_UEnum_TamSkadLecaTracery_E_TeamID_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "E_TeamID::GreenTeamID", (int64)E_TeamID::GreenTeamID },
+				{ "E_TeamID::RedTeamID", (int64)E_TeamID::RedTeamID },
+				{ "E_TeamID::None", (int64)E_TeamID::None },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "Comment", "/**\n * \n */" },
+				{ "GreenTeamID.Comment", "/**\n * \n */" },
+				{ "GreenTeamID.DisplayName", "GreenTeamID" },
+				{ "GreenTeamID.Name", "E_TeamID::GreenTeamID" },
+				{ "ModuleRelativePath", "TamSkadLecaTraceryGameModeBase.h" },
+				{ "None.Comment", "/**\n * \n */" },
+				{ "None.DisplayName", "None" },
+				{ "None.Name", "E_TeamID::None" },
+				{ "RedTeamID.Comment", "/**\n * \n */" },
+				{ "RedTeamID.DisplayName", "RedTeamID" },
+				{ "RedTeamID.Name", "E_TeamID::RedTeamID" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_TamSkadLecaTracery,
+				nullptr,
+				"E_TeamID",
+				"E_TeamID",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
 	}
 	DEFINE_FUNCTION(ATamSkadLecaTraceryGameModeBase::execAddRedTeamScore)
 	{
@@ -289,14 +358,6 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 #endif
 		static const UE4CodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnEndGameWithResultDelegate;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RedTeamID_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_RedTeamID;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GreenTeamID_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_GreenTeamID;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RedTeamScore_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_RedTeamScore;
@@ -317,12 +378,11 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 		{ &Z_Construct_UFunction_ATamSkadLecaTraceryGameModeBase_AddRedTeamScore, "AddRedTeamScore" }, // 3112080045
 		{ &Z_Construct_UFunction_ATamSkadLecaTraceryGameModeBase_GetGreenTeamScore, "GetGreenTeamScore" }, // 1993337643
 		{ &Z_Construct_UFunction_ATamSkadLecaTraceryGameModeBase_GetRedTeamScore, "GetRedTeamScore" }, // 2301506465
-		{ &Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature, "OnAddTeamScoreDelegate__DelegateSignature" }, // 3131704076
-		{ &Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature, "OnEndGameWithResultDelegate__DelegateSignature" }, // 1261989839
+		{ &Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnAddTeamScoreDelegate__DelegateSignature, "OnAddTeamScoreDelegate__DelegateSignature" }, // 1470691073
+		{ &Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature, "OnEndGameWithResultDelegate__DelegateSignature" }, // 3011454228
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering Utilities|Transformation" },
 		{ "IncludePath", "TamSkadLecaTraceryGameModeBase.h" },
 		{ "ModuleRelativePath", "TamSkadLecaTraceryGameModeBase.h" },
@@ -344,20 +404,6 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 #endif
 	const UE4CodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_OnEndGameWithResultDelegate = { "OnEndGameWithResultDelegate", nullptr, (EPropertyFlags)0x0020080010080000, UE4CodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, OnEndGameWithResultDelegate), Z_Construct_UDelegateFunction_ATamSkadLecaTraceryGameModeBase_OnEndGameWithResultDelegate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_OnEndGameWithResultDelegate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_OnEndGameWithResultDelegate_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_RedTeamID_MetaData[] = {
-		{ "Category", "Score" },
-		{ "ModuleRelativePath", "TamSkadLecaTraceryGameModeBase.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_RedTeamID = { "RedTeamID", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, RedTeamID), METADATA_PARAMS(Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_RedTeamID_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_RedTeamID_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_GreenTeamID_MetaData[] = {
-		{ "Category", "Score" },
-		{ "ModuleRelativePath", "TamSkadLecaTraceryGameModeBase.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_GreenTeamID = { "GreenTeamID", nullptr, (EPropertyFlags)0x0020080000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATamSkadLecaTraceryGameModeBase, GreenTeamID), METADATA_PARAMS(Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_GreenTeamID_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_GreenTeamID_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_RedTeamScore_MetaData[] = {
 		{ "Category", "Score" },
 		{ "ModuleRelativePath", "TamSkadLecaTraceryGameModeBase.h" },
@@ -374,8 +420,6 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_OnAddTeamScoreDelegate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_OnEndGameWithResultDelegate,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_RedTeamID,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_GreenTeamID,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_RedTeamScore,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATamSkadLecaTraceryGameModeBase_Statics::NewProp_GreenTeamScore,
 	};
@@ -406,7 +450,7 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTraceryGameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATamSkadLecaTraceryGameModeBase, 758073896);
+	IMPLEMENT_CLASS(ATamSkadLecaTraceryGameModeBase, 640054082);
 	template<> TAMSKADLECATRACERY_API UClass* StaticClass<ATamSkadLecaTraceryGameModeBase>()
 	{
 		return ATamSkadLecaTraceryGameModeBase::StaticClass();

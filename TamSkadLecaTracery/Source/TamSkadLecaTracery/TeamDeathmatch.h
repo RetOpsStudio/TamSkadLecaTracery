@@ -17,7 +17,7 @@ public:
 
 
 	UFUNCTION(BlueprintCallable)
-	virtual int EndGameWithResult() override;
+	virtual E_TeamID EndGameWithResult() override;
 
 
 };

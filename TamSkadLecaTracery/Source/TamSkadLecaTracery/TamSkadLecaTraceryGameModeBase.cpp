@@ -7,12 +7,12 @@
 void ATamSkadLecaTraceryGameModeBase::AddGreenTeamScore(int ScoreToAdd)
 {
 	GreenTeamScore += ScoreToAdd;
-	OnAddTeamScoreDelegate.Broadcast(GreenTeamID);
+	OnAddTeamScoreDelegate.Broadcast(E_TeamID::GreenTeamID);
 }
 
 /*Add score to red team and fires delegate OnAddTeamScoreDelegate*/
 void ATamSkadLecaTraceryGameModeBase::AddRedTeamScore(int ScoreToAdd)
 {
 	RedTeamScore += ScoreToAdd;
-	OnAddTeamScoreDelegate.Broadcast(RedTeamID);
+	OnAddTeamScoreDelegate.Broadcast(E_TeamID::RedTeamID);
 }

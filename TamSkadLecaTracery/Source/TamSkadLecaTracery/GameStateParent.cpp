@@ -17,6 +17,13 @@ TArray<APlayerState*> AGameStateParent::SortByScore(TArray<APlayerState*> ArrToS
 	return ArrToSort;
 }
 
+/** Add PlayerState to the PlayerArray */
+void AGameStateParent::AddPlayerState(APlayerState* PlayerState)
+{
+	Super::AddPlayerState(PlayerState);
+	OnNewPlayerStateAddedToArrayDelegate.Broadcast();
+}
+
 /*override for adding replicated variables*/
 void AGameStateParent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {

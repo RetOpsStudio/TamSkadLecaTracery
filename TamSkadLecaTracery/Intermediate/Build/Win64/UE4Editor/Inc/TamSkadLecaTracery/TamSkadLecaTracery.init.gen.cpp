@@ -27,7 +27,7 @@ void EmptyLinkFunctionForGeneratedCodeTamSkadLecaTracery_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x63E309A4,
+				0xCF7115C4,
 				0x9CF3ED9B,
 				METADATA_PARAMS(nullptr, 0)
 			};

@@ -21,11 +21,11 @@ public:
 	TArray<APlayerState*> SortByScore(TArray<APlayerState* > ArrToSort);
 
 protected:
-	//TODO Make score replicated
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Category = "Score")
 	int GreenTeamScore;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Replicated, Category = "Score")
 	int RedTeamScore;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
@@ -34,5 +34,7 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
 	int RedTeamID = 1;
 
+	/*override for adding replicated variables*/
+	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
 	
 };

@@ -29,7 +29,7 @@ Create Game view allows us to make a new game available for other players to joi
 ### Find Game
 After switching to Find Game view, the game searching will start.
 ![image](https://user-images.githubusercontent.com/56792313/129470724-7fab731d-686b-4454-900d-20bb5ea2d320.png)
-When the game searching is over, we are able to from the found sessions, the session we want to join. We can also refresh game if we didn't found session we were looking for.
+When the game searching is over, we are able to from the found sessions, the session we want to join. We can also refresh list if we didn't found session we were looking for.
 ![image](https://user-images.githubusercontent.com/56792313/129470759-adf3d94b-e3fa-44d3-bf7c-2284312d5bb4.png)
 
 ## Settings
@@ -40,7 +40,13 @@ Withing this view we are able to choose game display mode and window resolution.
 ![image](https://user-images.githubusercontent.com/56792313/129472857-6e8c6405-6093-43f6-b182-cbcf4a2a3e26.png)
 After changing and applying the settings, a confirmation window will appear in case something goes wrong.
 ![image](https://user-images.githubusercontent.com/56792313/129472966-83b044d0-0cff-4b62-bf38-19add52cb7f9.png)
-After clicking "Apply" changes will remain saved, in other cases (clicking "Discard" or waiting for the countdown to end) settings, 
+After clicking "Apply" changes will remain saved, in other cases (clicking "Discard" or waiting for the countdown to end), 
 the changes will be reverted to their previous state.
 
+### Graphic Settings
+In this view we can select one of predefined preset of settings or choose them on our own. After clicking "Apply Settings" setting will remained save.
+![image](https://user-images.githubusercontent.com/56792313/129473590-68dc80f1-3a0f-4f8a-b1ff-91764bd395a7.png)
 
+## Gameplay
+![image](https://user-images.githubusercontent.com/56792313/129474951-70e2d04d-08eb-42d9-973f-46e57e481bf4.png)
+Work about readme section in progress...

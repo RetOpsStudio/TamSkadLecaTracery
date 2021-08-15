@@ -23,4 +23,9 @@ Create Game view allows us to make a new game available for other players to joi
 ![image](https://user-images.githubusercontent.com/56792313/129457288-f97b5389-001e-4a2c-9758-722197ae892c.png)
 
 ### Find Game
-  Work about readme in progress...
+![image](https://user-images.githubusercontent.com/56792313/129470724-7fab731d-686b-4454-900d-20bb5ea2d320.png)
+![image](https://user-images.githubusercontent.com/56792313/129470759-adf3d94b-e3fa-44d3-bf7c-2284312d5bb4.png)
+
+
+
+

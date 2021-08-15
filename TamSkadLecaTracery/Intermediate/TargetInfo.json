@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "TamSkadLecaTracery",
-			"Path": "D:\\unreal\\TamSkadLecaTracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTracery.Target.cs",
+			"Path": "D:\\unreal\\Tracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTracery.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "TamSkadLecaTraceryEditor",
-			"Path": "D:\\unreal\\TamSkadLecaTracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTraceryEditor.Target.cs",
+			"Path": "D:\\unreal\\Tracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTraceryEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

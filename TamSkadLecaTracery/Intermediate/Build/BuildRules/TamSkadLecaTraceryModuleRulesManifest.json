@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"D:\\unreal\\TamSkadLecaTracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTracery\\TamSkadLecaTracery.Build.cs",
-		"D:\\unreal\\TamSkadLecaTracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTracery.Target.cs",
-		"D:\\unreal\\TamSkadLecaTracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTraceryEditor.Target.cs"
+		"D:\\unreal\\Tracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTracery\\TamSkadLecaTracery.Build.cs",
+		"D:\\unreal\\Tracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTracery.Target.cs",
+		"D:\\unreal\\Tracery\\TamSkadLecaTracery\\TamSkadLecaTracery\\Source\\TamSkadLecaTraceryEditor.Target.cs"
 	],
 	"EngineVersion": "4.25.4"
 }

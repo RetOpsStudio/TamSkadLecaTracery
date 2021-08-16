@@ -18,7 +18,7 @@
    - [Killing](#killing)
    - [Dying](#dying)
    - [Ending game](#ending-game)
- 4.[Epilogue])(#epilogue)
+4.[Epilogue](#epilogue)
 ## Project about:
 
 Simple multiplayer FPS game made in UE4 (bp/c++) that can be played over lan or internet(with hamachi like tools).

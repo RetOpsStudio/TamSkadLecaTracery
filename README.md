@@ -103,7 +103,7 @@ Firing:
 
 ## Bullets behaviour
 Bullets after being fired are autonomous actors. Their are able to ricochet in randomized direction with chance based on angle between bullet and hitted surface normal vector,
-they are also able to penetrate certain surfaces if they have enough speed and penetration(if penetration succeed, the bullet with move further with decreased speed based on bullet penetration and surface armor). Its worth to mention here that the acctual bullet damage calculation is based on bullet damage * bullet actual speed / bullet initial speed, so for example when bullet hitting target with half of the initial speed will do half of the damage.
+they are also able to penetrate certain surfaces if they have enough speed and penetration(if penetration succeed, the bullet with move further with decreased speed based on bullet penetration and surface armor). Its worth to mention here that the acctual bullet damage calculation is based on bullet damage * bullet actual speed / bullet initial speed, so for example, bullet hitting target with half of the initial speed will do half of the damage.
 
 Bullets ricochet:
 

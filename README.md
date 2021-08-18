@@ -9,6 +9,18 @@
      - [Screen Settings](#screen-settings)
      - [Graphic Settings](#graphic-settings)
 3. [Gameplay](#gameplay)
+   - [Choosing team](#choosing-team)
+   - [Choosing loadout and spawnpoint](#choosing-loadout-and-spawnpoint)
+   - [Movement](#movement)
+   - [Shooting](#shooting)
+     - [Crosshair behaviour](#crosshair-behaviour)
+     - [Bullets behaviour](#bullets-behaviour)
+   - [Killing](#killing)
+   - [Dying](#dying)
+   - [Ending game](#ending-game)
+
+4.[Epilogue](#epilogue)
+
 ## Project about:
 
 Simple multiplayer FPS game made in UE4 (bp/c++) that can be played over lan or internet(with hamachi like tools).
@@ -50,3 +62,72 @@ In this view we can select one of predefined preset of settings or choose them o
 ## Gameplay
 ![image](https://user-images.githubusercontent.com/56792313/129474951-70e2d04d-08eb-42d9-973f-46e57e481bf4.png)
 Work about readme section in progress...
+# Choosing team
+The first thing that appears after joining the game is the team selection menu where we are able to see actual number of players and their stats in each of teams. 
+![image](https://user-images.githubusercontent.com/56792313/129558107-f98a8b5f-aa5f-428d-a04c-7192ea876f0f.png)
+
+# Choosing loadout and spawnpoint
+Next thing that need to be done after selecting team we want to fight for, is selecting our loadout and spawnpoint.
+![image](https://user-images.githubusercontent.com/56792313/129559108-4a29991c-1bd2-4bd2-8074-f652ba68ad79.png)
+
+# Movement
+Pressing "Respawn" button will place us in selected spawn point at map, The following buttons are used for moving around :
+
+WSAD - move with defalut speed,
+
+left shift + WSAD - walk,
+
+left ctrl - crouch,
+
+spacebar - jump,
+
+R - Reload,
+
+LMB - shoot, 
+
+RMB - Aim down sights/ Stop aiming down sights,
+
+Tab - Show stats.
+![image](https://user-images.githubusercontent.com/56792313/129559535-06016da2-6167-4d60-8fac-e5ba4700b1e7.png)
+
+# Shooting
+Guns have different magazine size, rate of fire and recoil, after pressing LMB gun is going to fire automatically  till button will be released or ammunition in magazine ends.
+
+## Crosshair behaviour
+If we are firing or performing other actions while aiming from the hip, our accuracy will decrease, in this case crosshair outer circle will be sized up, to match worse accuracy.
+
+Standing still:
+![image](https://user-images.githubusercontent.com/56792313/129562928-61ac4f92-2545-4901-848f-a443f213e5d7.png)
+Firing:
+![image](https://user-images.githubusercontent.com/56792313/129563052-aeae89e2-275c-41d7-ab83-a539fb6f534c.png)
+
+## Bullets behaviour
+Bullets after being fired are autonomous actors. Their are able to ricochet in randomized direction with chance based on angle between bullet and hitted surface normal vector,
+they are also able to penetrate certain surfaces if they have enough speed and penetration(if penetration succeed, the bullet with move further with decreased speed based on bullet penetration and surface armor). Its worth to mention here that the acctual bullet damage calculation is based on bullet damage * bullet actual speed / bullet initial speed, so for example, bullet hitting target with half of the initial speed will do half of the damage.
+
+Bullets ricochet:
+
+![image](https://user-images.githubusercontent.com/56792313/129606473-447aed83-28d4-4e7d-a791-027b98b7783b.png)
+
+
+Bullets penetrating surface:
+
+![image](https://user-images.githubusercontent.com/56792313/129608079-0abbecb5-8035-4e80-9ed5-8f17096f60a9.png)
+
+## Killing
+
+Each kill made on enemy team player will result adding score for your team, displaying your nickname with nickname player you have killed in the top right corner of every players screen and adding kill to your statistics shown by pressing Tab key. 
+![image](https://user-images.githubusercontent.com/56792313/129610723-2d81c4e9-bff1-487e-9bfe-36c9d2f8d726.png)
+![image](https://user-images.githubusercontent.com/56792313/129610782-7d59f95b-cce6-431f-a7f5-c19c0c08400d.png)
+
+## Dying
+
+After each death our deaths in statistics will grow and we will be taken by short animation to a top view of the map, where we can once again choose our loadout and spawn point.
+![image](https://user-images.githubusercontent.com/56792313/129611718-77814932-23e6-400f-b4c3-37b088fcef5b.png)
+
+## Ending game
+Game ends when one team scores predifined amount of kills, after that message with winnig team name will be shown, and everyone will get kicked to lobby.
+![image](https://user-images.githubusercontent.com/56792313/129613132-1c58c2ed-df55-4830-bbdd-168e7bcba8f4.png)
+
+## Epilogue 
+That's all about this project, I invite you to download and play it by yourself. I also invite you to see project that is currently being developed "BPP Project" -https://github.com/RetOpsStudio/BPP_Project - Project which is going to be an RTS and FPS hybrid.

@@ -54,7 +54,13 @@ void ADefaultCH::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 }
 
 //canBeSeenFrom method for Ai perception sight 
-bool ADefaultCH::CanBeSeenFrom(const FVector& ObserverLocation, FVector& OutSeenLocation, int32& NumberOfLoSChecksPerformed, float& OutSightStrength, const AActor* IgnoreActor) const
+bool ADefaultCH::CanBeSeenFrom(const FVector& ObserverLocation,
+	FVector& OutSeenLocation,
+	int32& NumberOfLoSChecksPerformed,
+	float& OutSightStrength,
+	const AActor* IgnoreActor,
+	const bool* bWasVisible,
+	int32* UserData) const
 {
 	static const FName NAME_AILineOfSight = FName(TEXT("TestPawnLineOfSight"));
 	FHitResult HitResult;

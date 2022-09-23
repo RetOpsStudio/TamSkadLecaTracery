@@ -57,8 +57,10 @@ public:
 		FVector& OutSeenLocation,
 		int32& NumberOfLoSChecksPerformed,
 		float& OutSightStrength,
-		const AActor* IgnoreActor = NULL
-	) const;
+		const AActor* IgnoreActor = nullptr,
+		const bool* bWasVisible = nullptr,
+		int32* UserData = nullptr
+	) const override;
 
 	///////////networking functions/////////////	
 

@@ -2,7 +2,7 @@
 ## Table of Contents:
 1. [Project about](#project-about)
 2. [Main menu](#main-menu)
-   - [Multiplayer](#multi-player-menu)
+   - [Multiplayer](#multiplayer-menu)
      - [Create Game](#create-game)
      - [Find Game](#find-game)
    - [Settings](#settings)
@@ -31,7 +31,7 @@ Players can join up one of two teams - Red or Green, choose their loadouts and s
 The Main menu is first what we can see when we launch this game, it gives us access to Multi Player menu, where we can create or join existing game, settings menu, where we can adjust graphic and screen settings, and the Quit Game option.
 ![image](https://user-images.githubusercontent.com/56792313/129456380-2f68c849-48f5-4942-81bc-c3aa3060d8fb.png)
 
-## Multi Player menu
+## Multiplayer menu
 In MP menu we can choose our nickname and switch between two views - [Create Game](#create-game)(default) and [Find Game](#find-game). We can also click the back button to move back to Main menu.
 
 ### Create Game

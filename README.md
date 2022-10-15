@@ -2,7 +2,7 @@
 ## Table of Contents:
 1. [Project about](#project-about)
 2. [Main menu](#main-menu)
-   - [Multi player](#multi-player-menu)
+   - [Multiplayer](#multi-player-menu)
      - [Create Game](#create-game)
      - [Find Game](#find-game)
    - [Settings](#settings)

@@ -82,6 +82,12 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setup")
 	TSubclassOf<AGunParentV2> PrimaryWeaponClass;
+
+	FRotator GetYawRotation();
+
+	void MoveForBackCallback(float AxisValue);
+	void MoveRightLeftCallback(float AxisValue);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

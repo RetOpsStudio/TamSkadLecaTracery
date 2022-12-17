@@ -9,6 +9,7 @@
 #include "Net/UnrealNetwork.h"
 #include "GameFramework/Actor.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 ADefaultCH::ADefaultCH()
@@ -50,6 +51,29 @@ void ADefaultCH::SetupVariables(UAnimInstance* Ref)
 void ADefaultCH::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	PlayerInputComponent->BindAxis("MovForBack", this, &ADefaultCH::MoveForBackCallback);
+	PlayerInputComponent->BindAxis("MovLeftRight", this, &ADefaultCH::MoveRightLeftCallback);
+}
+
+FRotator ADefaultCH::GetYawRotation()
+{
+	FRotator rotation = GetControlRotation();
+	return UKismetMathLibrary::MakeRotator(0.f, 0.f, rotation.Yaw);
+}
+
+void ADefaultCH::MoveForBackCallback(float AxisValue)
+{
+	auto worldDirection = UKismetMathLibrary::GetForwardVector(GetYawRotation());
+	float scale = UKismetMathLibrary::SignOfFloat(AxisValue);
+	AddMovementInput(worldDirection, scale);
+}
+
+void ADefaultCH::MoveRightLeftCallback(float AxisValue)
+{
+	auto worldDirection = UKismetMathLibrary::GetRightVector(GetYawRotation());
+	float scale = UKismetMathLibrary::SignOfFloat(AxisValue);
+	AddMovementInput(worldDirection, scale);
 
 }
 

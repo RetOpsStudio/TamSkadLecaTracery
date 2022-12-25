@@ -54,6 +54,8 @@ void ADefaultCH::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 
 	PlayerInputComponent->BindAxis("MovForBack", this, &ADefaultCH::MoveForBackCallback);
 	PlayerInputComponent->BindAxis("MovLeftRight", this, &ADefaultCH::MoveRightLeftCallback);
+	PlayerInputComponent->BindAxis("MovCamX", this, &ADefaultCH::MoveCamXCallback);
+	PlayerInputComponent->BindAxis("MovCamY", this, &ADefaultCH::MoveCamYCallback);
 }
 
 FRotator ADefaultCH::GetYawRotation()
@@ -74,9 +76,18 @@ void ADefaultCH::MoveRightLeftCallback(float AxisValue)
 	auto worldDirection = UKismetMathLibrary::GetRightVector(GetYawRotation());
 	float scale = UKismetMathLibrary::SignOfFloat(AxisValue);
 	AddMovementInput(worldDirection, scale);
-
 }
 
+void ADefaultCH::MoveCamXCallback(float AxisValue)
+{
+	AddControllerYawInput(AxisValue);
+}
+
+void ADefaultCH::MoveCamYCallback(float AxisValue)
+{
+	AddControllerPitchInput(-AxisValue);
+	UpdateYRot();
+}
 //canBeSeenFrom method for Ai perception sight 
 bool ADefaultCH::CanBeSeenFrom(const FVector& ObserverLocation,
 	FVector& OutSeenLocation,

@@ -88,6 +88,10 @@ public:
 	void MoveForBackCallback(float AxisValue);
 	void MoveRightLeftCallback(float AxisValue);
 
+	void MoveCamXCallback(float AxisValue);
+
+	void MoveCamYCallback(float AxisValue);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

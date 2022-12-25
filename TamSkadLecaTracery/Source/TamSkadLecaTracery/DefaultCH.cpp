@@ -14,12 +14,8 @@
 // Sets default values
 ADefaultCH::ADefaultCH()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	bReplicates = true;
-	
-	
-	
+	bReplicates = true;	
 }
 
 // Called when the game starts or when spawned
@@ -131,7 +127,7 @@ void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifeti
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME_CONDITION(ADefaultCH, RotationY, COND_SimulatedOnly);
-	DOREPLIFETIME_CONDITION(ADefaultCH, States, COND_SkipOwner);
+	DOREPLIFETIME_CONDITION(ADefaultCH, States, COND_SimulatedOnly);
 }
 
 
@@ -139,7 +135,10 @@ void ADefaultCH::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifeti
 //Replicates player rotation pitch to other players (must be done by functionName_Implementation())
 void ADefaultCH::UpdateYRot_Implementation()
 {
-	if (!GetOwner()) { return; }
+	if (!GetOwner()) 
+	{ 
+		return;
+	}
 	if (HasAuthority())
 	{
 		RotationY = GetControlRotation().Pitch;	

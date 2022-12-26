@@ -30,31 +30,19 @@ void AGunParentV2::Fire(FTransform BulletSpawnTransform, USceneComponent* Attach
 	}
 	if (InMagAmmo > 0)
 	{
-		
+		auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass, BulletSpawnTransform);   //spawning bullet from template
+		if (!Bullet) 
+		{ 
+			return; 
+		}
 		if (HasAuthority())
 		{
-			auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass, BulletSpawnTransform);   //spawning bullet from template
-
-			if (!Bullet) { return; }
-
 			Bullet->SetInstigator(NewInstigator);
-			Bullet->SetLifeSpan(BulletLifeTime);
-			Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
-			InMagAmmo--;
 		}
-		else //if local copy
-		{
-			auto Bullet = GetWorld()->SpawnActor<ABulletParent>(BulletClass, BulletSpawnTransform);   //spawning bullet from template
-
-			if (!Bullet) { return; }
-
-			Bullet->SetLifeSpan(BulletLifeTime);
-			Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
-			InMagAmmo--;
-		}
-
+		Bullet->SetLifeSpan(BulletLifeTime);
+		Bullet->FireInDirection(BulletSpawnTransform.GetRotation().GetForwardVector(), Bullet->GetInitialBulletSpeed());
+		InMagAmmo--;
 	}
-	
 }
 
 /*called when you want to reload weapon*/
@@ -69,7 +57,7 @@ void AGunParentV2::FillMagFromAmmoLeft()
 {
 	if (!ensure(MagazineSize >= 0)) 
 	{
-		UE_LOG(LogTemp, Warning, TEXT("MagazineSize cannot be lower then 1 you idiot"));
+		UE_LOG(LogTemp, Warning, TEXT("MagazineSize cannot be lower than 1"));
 		return;
 	}
 

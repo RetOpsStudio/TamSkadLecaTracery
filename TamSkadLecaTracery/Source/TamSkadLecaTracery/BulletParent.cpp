@@ -13,44 +13,32 @@ ABulletParent::ABulletParent()
 	PrimaryActorTick.bCanEverTick = true;
 	Setup();
 	ProjectileMovementComponent->bAutoActivate = false;
-	
-
 }
 
 // Called when the game starts or when spawned
 void ABulletParent::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	
 }
 
 // Called every frame
 void ABulletParent::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//UE_LOG(LogTemp, Warning, TEXT("%s"), *GetRootComponent()->GetComponentVelocity().ToString());
-
 }
 
 void ABulletParent::FireInDirection(const FVector& ShootDirection, float Speed)
 {
-	
 	ProjectileMovementComponent->Velocity = ShootDirection * Speed;
 	ProjectileMovementComponent->Activate();
-
-	
 }
 
 void ABulletParent::Setup()
 {
-	
-
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
 	ProjectileMovementComponent->SetUpdatedComponent(CollisionComponent);
 	ProjectileMovementComponent->InitialSpeed = InitialBulletSpeed;
 	ProjectileMovementComponent->bRotationFollowsVelocity = true;
 	ProjectileMovementComponent->bShouldBounce = true;
 	ProjectileMovementComponent->Bounciness = 0.05f;
-	
 }

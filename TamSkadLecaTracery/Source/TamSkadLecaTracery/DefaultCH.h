@@ -78,7 +78,7 @@ public:
 	void Event_StatesUpdated();
 
 	UFUNCTION(BlueprintCallable)
-	void OnRep_SetStates(FChStates NewStates);
+	void OnRep_SetStates(/*FChStates NewStates*/);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Setup")
 	TSubclassOf<AGunParentV2> PrimaryWeaponClass;

@@ -22,7 +22,6 @@ ADefaultCH::ADefaultCH()
 void ADefaultCH::BeginPlay()
 {
 	Super::BeginPlay();
-	//Weapon = GetWorld()->SpawnActor(StartingWeapon); //spawns Weapon that can be attached to PrimaryWeapon slot in CH
 }
 
 
@@ -150,11 +149,11 @@ void ADefaultCH::UpdateChStates_Implementation(FChStates NewStates)
 	if (HasAuthority())
 	{
 		States = NewStates;
-		OnRep_SetStates(NewStates);		
+		Event_StatesUpdated();
 	}
 }
 
-void ADefaultCH::OnRep_SetStates(FChStates NewStates)
+void ADefaultCH::OnRep_SetStates()
 {
 	Event_StatesUpdated();
 }

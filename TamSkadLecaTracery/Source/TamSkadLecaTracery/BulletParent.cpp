@@ -42,3 +42,23 @@ void ABulletParent::Setup()
 	ProjectileMovementComponent->bShouldBounce = true;
 	ProjectileMovementComponent->Bounciness = 0.05f;
 }
+
+int ABulletParent::GetDamageToDeal(float damageMultiplier)
+{
+	if (!ProjectileMovementComponent)
+	{
+		return 0;
+	}
+	float baseDmgProc = ProjectileMovementComponent->Velocity.Size() / GetInitialBulletSpeed();
+	float dmgBeforeMul = baseDmgProc * baseDamage;
+	return static_cast<int>(dmgBeforeMul * damageMultiplier);
+
+}
+
+bool ABulletParent::GetVelocityAfterImpact(int obstacleArmor, const FVector& inVelocity, FVector& outVelocity)
+{
+	float procentageSlow = FMath::Clamp(static_cast<int>(obstacleArmor - armorPenetration), 0, 100);
+	procentageSlow /= 100.f;
+	outVelocity = inVelocity - inVelocity * procentageSlow;
+	return outVelocity.Size() >= minimalBulletSpeed;
+}

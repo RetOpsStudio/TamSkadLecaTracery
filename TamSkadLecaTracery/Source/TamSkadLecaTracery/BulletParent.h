@@ -42,8 +42,23 @@ public:
 	UFUNCTION(BlueprintCallable)
 	float GetInitialBulletSpeed() { return InitialBulletSpeed; }
 
+	UFUNCTION(BlueprintCallable)
+	int GetDamageToDeal(float damageMultiplier);
+
+	UFUNCTION(BlueprintCallable)
+	bool GetVelocityAfterImpact(int obstacleArmor, const FVector& inVelocity, FVector& outVelocity);
+
 	UPROPERTY(EditAnywhere, Category = "Setup")
-	float InitialBulletSpeed = 7000;  //TODO Find sensible avlue 
+	float InitialBulletSpeed = 7000.f;
+
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	float baseDamage = 70.f;  
+
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	float armorPenetration = 10.f;  
+
+	UPROPERTY(EditAnywhere, Category = "Setup")
+	float minimalBulletSpeed = 1500.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Utility")
 	int PlayerControllerID= -1;

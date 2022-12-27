@@ -62,3 +62,35 @@ bool ABulletParent::GetVelocityAfterImpact(int obstacleArmor, const FVector& inV
 	outVelocity = inVelocity - inVelocity * procentageSlow;
 	return outVelocity.Size() >= minimalBulletSpeed;
 }
+
+bool ABulletParent::HandleRicochet(USceneComponent* bullet, const FVector& hitNormal)
+{
+	bool bResult = CheckIfRicochet(bullet, hitNormal);
+	if (bResult)
+	{
+		ChangeBulletTrajectory();
+	}
+	return bResult;
+}
+
+bool ABulletParent::CheckIfRicochet(USceneComponent* bullet, const FVector& hitNormal)
+{
+	if (!bullet || bullet->ComponentVelocity.Size() < minimalBulletSpeed)
+	{
+		return false;
+	}
+	FVector bulletDir = bullet->GetForwardVector();
+	float cosine = FVector::DotProduct(hitNormal, bulletDir);
+	//dot for 90 = 0
+	auto notRicoChance = FMath::Abs(cosine * 100); //our chance to not rico
+	int random = FMath::RandHelper(100);//returns random int, with max value 100;
+	return random > static_cast<int>(notRicoChance); //if cosine was 1 it should it should be false
+}
+
+void ABulletParent::ChangeBulletTrajectory()
+{
+	auto& velo = ProjectileMovementComponent->Velocity;
+	velo.X *= FMath::FRandRange(0.5, 1.0);
+	velo.Y *= FMath::FRandRange(0.5, 1.0);
+	velo.Z *= FMath::FRandRange(0.5, 1.0);
+}

@@ -48,6 +48,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool GetVelocityAfterImpact(int obstacleArmor, const FVector& inVelocity, FVector& outVelocity);
 
+	UFUNCTION(BlueprintCallable)
+	bool HandleRicochet(USceneComponent* bullet, const FVector& hitNormal);
+
+	UFUNCTION(BlueprintCallable)
+	bool CheckIfRicochet(USceneComponent* bullet, const FVector& hitNormal);
+
+	UFUNCTION(BlueprintCallable)
+	void ChangeBulletTrajectory();
+
 	UPROPERTY(EditAnywhere, Category = "Setup")
 	float InitialBulletSpeed = 7000.f;
 

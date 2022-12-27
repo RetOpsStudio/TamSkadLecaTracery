@@ -28,7 +28,7 @@ protected:
 	UProjectileMovementComponent* ProjectileMovementComponent = nullptr;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Projectile")
-	USphereComponent* CollisionComponent = nullptr;;
+	USphereComponent* CollisionComponent = nullptr;
 
 	
 public:	
@@ -69,9 +69,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Setup")
 	float minimalBulletSpeed = 1500.f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Utility")
-	int PlayerControllerID= -1;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Utility")
+	//int PlayerControllerID= -1;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Utility")
-	AActor* PawnControllerRef = nullptr;
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Utility")
+	AActor* PawnControllerRef = nullptr;*/
 };

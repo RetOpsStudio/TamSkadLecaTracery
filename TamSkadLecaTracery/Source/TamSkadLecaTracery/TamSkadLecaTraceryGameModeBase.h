@@ -52,6 +52,11 @@ public:
 	/*ends game and returns winning team id*/
 	virtual E_TeamID EndGameWithResult() { return E_TeamID::None; };
 
+	UPROPERTY(BlueprintAssignable, Category = "Score")
+	FOnEndGameWithResultDelegate OnEndGameWithResultDelegate;
+
+	UPROPERTY(BlueprintAssignable, Category = "Score")
+	FOnAddTeamScoreDelegate OnAddTeamScoreDelegate;
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
 	int GreenTeamScore;
@@ -59,9 +64,4 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Score")
 	int RedTeamScore;
 
-	UPROPERTY(BlueprintAssignable, Category = "Score")
-	FOnEndGameWithResultDelegate OnEndGameWithResultDelegate;
-
-	UPROPERTY(BlueprintAssignable, Category = "Score")
-	FOnAddTeamScoreDelegate OnAddTeamScoreDelegate;
 };

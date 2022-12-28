@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameState.h"
+#include "TamSkadLecaTraceryGameModeBase.h"
 #include "GameStateParent.generated.h"
-
 
 /**
  * 
@@ -28,6 +28,8 @@ public:
 	DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNewPlayerStateAddedToArrayDelegate);
 
 	
+	UFUNCTION()
+	void OnScoreAdd(E_TeamID TeamID);
 
 protected:
 
@@ -49,5 +51,7 @@ protected:
 	/*override for adding replicated variables*/
 	void GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const override;
 	
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 };

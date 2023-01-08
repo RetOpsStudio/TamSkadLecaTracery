@@ -147,7 +147,3 @@ void UGameInstanceParent::OnDestroySessionComplete(FName Name, bool Succeeded)
 	/*Event fired when games was successfully destroyed. Used in blueprint*/
 	OnDestroySessionCompleteEvent();
 }
-
-
-//debug code
-/*GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Green, FString::Printf(TEXT("Joing Session %s Complete: %d"), *URL, Result));*/

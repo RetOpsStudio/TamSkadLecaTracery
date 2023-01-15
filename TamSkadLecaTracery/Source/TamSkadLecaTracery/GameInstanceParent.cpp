@@ -48,7 +48,7 @@ void UGameInstanceParent::CreateServer(FString ServerName, FString MapName, int 
 	SessionSettings.bShouldAdvertise = true;
 	SessionSettings.bUsesPresence = true;
 
-	SessionSettings.NumPublicConnections = (SlotNumber < 0 ? SlotNumber : 10);
+	SessionSettings.NumPublicConnections = (SlotNumber > 0 ? SlotNumber : 10);
 
 	SessionSettings.Set(SETTING_MAPNAME, MapName, EOnlineDataAdvertisementType::ViaOnlineService);
 	SessionSettings.Set(FName("SERVER_NAME"), ServerName, EOnlineDataAdvertisementType::ViaOnlineService);
